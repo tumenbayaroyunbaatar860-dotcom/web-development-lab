@@ -1,27 +1,187 @@
-<!DOCTYPE html> 
-<html lang="mn"> 
-<head> 
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>Миний  CV</title> 
-</head> 
-<body> 
-<!-- Үндсэн гарчиг --> 
-<h1> Овог нэр:Түмэнбаяр Оюунбаатар</h1> 
-<!-- Товч танилцуулга --> 
-<p>Мэдээллийн технологийн сургуулийн 2-р суралцагч.Мультмедиа технологийн чиглэлээр суралцдаг.Зураг,Видео эвлүүлэх, Гэрэл зураг,Motion graphic талдаа илүү сонирхон судалдаг.
- .</p> 
-<h2>Эзэмшсэн чадварууд</h2> 
-<!-- Жагсаалт --> 
-<ul> 
-<li>Photo shop , illustrator</li> 
-<li>After effects, blender</li> 
-<li>Программчлалын С++ хэл</li> 
-</ul> 
-<h2>Холбоо барих</h2> 
-<!-- Холбоос --> 
-<p>Миний GitHub профайлтай танилцах:  
-<a href="https://github.com" target="_blank">GitHub Холбоос</a> 
-</p> 
-</body> 
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Миний Товч CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f5f7;
+    color: #2b2d33;
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .cv-container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .cv-header {
+    background: #1f2937;
+    color: #ffffff;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .cv-header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+  }
+
+  .cv-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .cv-header p {
+    font-size: 15px;
+    font-weight: 300;
+    color: #d1d5db;
+  }
+
+  .cv-body {
+    padding: 36px 40px;
+  }
+
+  .cv-section {
+    margin-bottom: 28px;
+  }
+
+  .cv-section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1f2937;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+  }
+
+  .cv-section p {
+    font-size: 14.5px;
+    font-weight: 300;
+    color: #4b5563;
+  }
+
+  .skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skills-list li {
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+
+  .contact-list {
+    list-style: none;
+  }
+
+  .contact-list li {
+    font-size: 14.5px;
+    font-weight: 300;
+    color: #4b5563;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .contact-list li span.label {
+    font-weight: 500;
+    color: #1f2937;
+    min-width: 90px;
+  }
+
+  .contact-list a {
+    color: #4338ca;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .contact-list a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 500px) {
+    .cv-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="cv-container">
+
+  <!-- Толгой хэсэг: зураг, нэр -->
+  <header class="cv-header">
+    <img src="photo.jpg" alt="Оюунбаатар Түмэнбаяр">
+    <div>
+      <h1>Оюунбаатар Түмэнбаяр</h1>
+      <p>Мэдээлэл, Холбооны Технологийн Их Сургуулийн 2-р курсийн оюутан</p>
+    </div>
+  </header>
+
+  <div class="cv-body">
+
+    <!-- Товч танилцуулга -->
+    <section class="cv-section">
+      <h2>Танилцуулга</h2>
+      <p>Шинжлэх Ухаан Технологийн Их Сургуулийн Мэдээлэл, Холбооны Технологийн чиглэлээр суралцаж буй 2-р курсийн оюутан. Дизайн болон программчлалын чиглэлээр өөрийгөө хөгжүүлэхийг эрмэлздэг.</p>
+    </section>
+
+    <!-- Эзэмшсэн чадварууд -->
+    <section class="cv-section">
+      <h2>Эзэмшсэн чадварууд</h2>
+      <ul class="skills-list">
+        <li>Photoshop</li>
+        <li>After Effects</li>
+        <li>Illustrator</li>
+        <li>InDesign</li>
+        <li>C++</li>
+      </ul>
+    </section>
+
+    <!-- Холбоо барих -->
+    <section class="cv-section">
+      <h2>Холбоо барих</h2>
+      <ul class="contact-list">
+        <li><span class="label">Утас:</span> +976 99817144</li>
+        <li><span class="label">Facebook:</span> Oyunbaatartumenbayar</li>
+        <li><span class="label">Имэйл:</span> tumenbayaroyunbaatar860@gmail.com</li>
+        <li><span class="label">GitHub:</span> <a href="https://github.com/tumenbayaroyunbaatar860-dotcom" target="_blank">tumenbayaroyunbaatar860-dotcom</a></li>
+      </ul>
+    </section>
+
+  </div>
+</div>
+
+</body>
 </html>
