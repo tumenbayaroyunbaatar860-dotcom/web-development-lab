@@ -1,118 +1,77 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Оюутны бүртгэлийн анкет бөглөх хуудас">
   <title>Лаборатори 02 · Оюутны анкет</title>
-  <style>
-    :root { color-scheme: light; --ink:#172a3a; --muted:#617386; --blue:#176b87; --line:#d8e3e8; --paper:#fff; --bg:#edf4f5; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
-    header { padding:1.1rem max(1.25rem,calc((100% - 1060px)/2)); color:white; background:#123b50; }
-    .brand { margin:0; font-size:1rem; letter-spacing:.04em; }
-    nav ul { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; list-style:none; margin:.7rem 0 0; padding:0; }
-    nav a { color:#d8edf3; text-decoration:none; } nav a:hover, nav a:focus { text-decoration:underline; }
-    main { width:min(1060px,calc(100% - 2rem)); margin:2rem auto; }
-    .intro { padding:clamp(1.4rem,4vw,2.5rem); border-radius:18px 18px 0 0; color:white; background:linear-gradient(115deg,#176b87,#279a91); }
-    .intro h1 { margin:0 0 .45rem; font-size:clamp(1.7rem,4vw,2.4rem); line-height:1.2; }
-    .intro p { max-width:62ch; margin:0; color:#e5f5f5; }
-    .content { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(250px,.85fr); gap:1.25rem; padding:1.25rem; background:#f8fbfb; border-radius:0 0 18px 18px; box-shadow:0 14px 36px #173b5015; }
-    article, aside { min-width:0; }
-    .panel { padding:1.35rem; margin-bottom:1.25rem; background:var(--paper); border:1px solid var(--line); border-radius:14px; }
-    .panel:last-child { margin-bottom:0; }
-    h2 { margin:0 0 1rem; font-size:1.25rem; }
-    .form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-    fieldset { min-width:0; margin:0 0 1rem; padding:1rem; border:1px solid var(--line); border-radius:10px; }
-    legend { padding:0 .35rem; color:var(--blue); font-weight:700; }
-    label, .field-label { display:block; margin-bottom:.35rem; font-size:.93rem; font-weight:600; }
-    input:not([type=radio]):not([type=checkbox]), select, textarea { width:100%; min-height:44px; padding:.65rem .75rem; color:var(--ink); background:white; border:1px solid #b9cbd3; border-radius:7px; font:inherit; }
-    input[type=file] { padding:.45rem !important; }
-    input:focus,select:focus,textarea:focus { outline:3px solid #3c9eac44; border-color:var(--blue); }
-    .hint { display:block; color:var(--muted); font-size:.82rem; }
-    .choice-row { display:flex; flex-wrap:wrap; gap:.75rem 1.1rem; }
-    .choice { display:inline-flex; align-items:center; gap:.45rem; font-weight:400; }
-    .choice input { accent-color:var(--blue); }
-    .full { grid-column:1/-1; }
-    textarea { min-height:110px; resize:vertical; }
-    .actions { display:flex; flex-wrap:wrap; gap:.75rem; }
-    button { min-height:44px; padding:.65rem 1rem; border:0; border-radius:8px; font:inherit; font-weight:700; cursor:pointer; }
-    button[type=submit] { color:white; background:var(--blue); } button[type=reset] { color:var(--ink); background:#e4edef; }
-    button:hover { filter:brightness(.94); }
-    .interests { margin:0; padding-left:1.3rem; } .interests li { padding:.25rem 0; }
-    table { width:100%; border-collapse:collapse; text-align:left; }
-    caption { margin-bottom:.65rem; color:var(--muted); text-align:left; font-size:.9rem; }
-    th,td { padding:.65rem .5rem; border-bottom:1px solid var(--line); }
-    thead { color:#fff; background:#176b87; } thead th:first-child { border-radius:7px 0 0 0; } thead th:last-child { border-radius:0 7px 0 0; }
-    tbody tr:last-child td { border-bottom:0; }
-    footer { padding:1.25rem; color:#d8edf3; background:#123b50; text-align:center; font-size:.9rem; }
-    footer p { margin:0; }
-    @media(max-width:760px) { .content { grid-template-columns:1fr; } }
-    @media(max-width:520px) { .form-grid { grid-template-columns:1fr; } .full { grid-column:auto; } main { width:min(100% - 1rem,1060px); margin:1rem auto; } .content { padding:.7rem; } .panel { padding:1rem; } }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <p class="brand">ОЮУТНЫ БҮРТГЭЛИЙН ПОРТАЛ</p>
-    <nav aria-label="Үндсэн цэс">
+    <nav class="site-nav" aria-label="Үндсэн цэс">
       <ul>
-        <li><a href="../index.html">Нүүр</a></li>
+        <li><a href="#page-title">Эхлэл</a></li>
         <li><a href="#anket">Анкет бөглөх</a></li>
         <li><a href="#tuslamj">Тусламж</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
+  <main class="page-main">
     <section class="intro" aria-labelledby="page-title">
-      <h1 id="page-title">Оюутны анкет</h1>
-      <p>Бүртгэлээ үүсгэхийн тулд мэдээллээ үнэн зөв бөглөнө үү. Од (*) тэмдэгтэй талбарууд заавал бөглөх шаардлагатай.</p>
+      <h1 class="page-title" id="page-title">Оюутны анкет</h1>
+      <p class="intro-copy">Бүртгэлээ үүсгэхийн тулд мэдээллээ үнэн зөв бөглөнө үү. Од (*) тэмдэгтэй талбарууд заавал бөглөх шаардлагатай.</p>
     </section>
-    <div class="content">
-      <article id="anket">
+    <div class="content-layout">
+      <article class="content-article" id="anket">
         <section class="panel" aria-labelledby="form-title">
-          <h2 id="form-title">Бүртгэлийн мэдээлэл</h2>
+          <h2 class="form-heading" id="form-title">Бүртгэлийн мэдээлэл <span class="required-badge" tabindex="0" data-tooltip="Одон тэмдэгтэй талбаруудыг заавал бөглөнө үү.">* Заавал</span></h2>
           <form action="#" method="post" enctype="multipart/form-data">
-            <fieldset>
-              <legend>Хувийн мэдээлэл</legend>
+            <fieldset class="form-fieldset">
+              <legend class="form-legend">Хувийн мэдээлэл</legend>
               <div class="form-grid">
-                <div class="full">
-                  <label for="fullname">Овог, нэр *</label>
-                  <input type="text" id="fullname" name="fullname" placeholder="Жишээ: Болдбаатар Бат" required minlength="2" pattern="[А-Яа-яЁёӨөҮүA-Za-z .'-]{2,}" title="Хамгийн багадаа 2 үсэг оруулна уу.">
+                <div class="form-full">
+                  <label class="field-label" for="fullname">Овог, нэр *</label>
+                  <input class="field-control" type="text" id="fullname" name="fullname" placeholder="Жишээ: Болдбаатар Бат" required minlength="2" pattern="[А-Яа-яЁёӨөҮүA-Za-z .'-]{2,}" title="Хамгийн багадаа 2 үсэг оруулна уу.">
                 </div>
                 <div>
-                  <label for="email">Цахим шуудан *</label>
-                  <input type="email" id="email" name="email" placeholder="ner@example.com" required>
+                  <label class="field-label" for="email">Цахим шуудан *</label>
+                  <input class="field-control" type="email" id="email" name="email" placeholder="ner@example.com" required>
                 </div>
                 <div>
-                  <label for="password">Нууц үг *</label>
-                  <input type="password" id="password" name="password" required minlength="6" autocomplete="new-password">
-                  <span class="hint">6-аас доошгүй тэмдэгт байна.</span>
+                  <label class="field-label" for="password">Нууц үг *</label>
+                  <input class="field-control" type="password" id="password" name="password" required minlength="6" autocomplete="new-password">
+                  <span class="field-hint">6-аас доошгүй тэмдэгт байна.</span>
                 </div>
                 <div>
-                  <label for="phone">Утасны дугаар *</label>
-                  <input type="tel" id="phone" name="phone" placeholder="88112233" pattern="[0-9]{8}" title="8 оронтой утасны дугаар оруулна уу." required>
+                  <label class="field-label" for="phone">Утасны дугаар *</label>
+                  <input class="field-control" type="tel" id="phone" name="phone" placeholder="88112233" pattern="[0-9]{8}" title="8 оронтой утасны дугаар оруулна уу." required>
                 </div>
                 <div>
-                  <label for="dob">Төрсөн огноо *</label>
-                  <input type="date" id="dob" name="dob" required>
+                  <label class="field-label" for="dob">Төрсөн огноо *</label>
+                  <input class="field-control" type="date" id="dob" name="dob" required>
                 </div>
-                <div class="full">
+                <div class="form-full">
                   <span class="field-label" id="gender-label">Хүйс</span>
-                  <div class="choice-row" role="group" aria-labelledby="gender-label">
-                    <label class="choice" for="male"><input type="radio" id="male" name="gender" value="male"> Эрэгтэй</label>
-                    <label class="choice" for="female"><input type="radio" id="female" name="gender" value="female"> Эмэгтэй</label>
-                    <label class="choice" for="other"><input type="radio" id="other" name="gender" value="other"> Хариулахгүй</label>
+                  <div class="choice-group" role="group" aria-labelledby="gender-label">
+                    <label class="choice-label" for="male"><input class="choice-control" type="radio" id="male" name="gender" value="male"> Эрэгтэй</label>
+                    <label class="choice-label" for="female"><input class="choice-control" type="radio" id="female" name="gender" value="female"> Эмэгтэй</label>
+                    <label class="choice-label" for="other"><input class="choice-control" type="radio" id="other" name="gender" value="other"> Хариулахгүй</label>
                   </div>
                 </div>
               </div>
             </fieldset>
-            <fieldset>
-              <legend>Боловсрол ба сонирхол</legend>
+            <fieldset class="form-fieldset">
+              <legend class="form-legend">Боловсрол ба сонирхол</legend>
               <div class="form-grid">
                 <div>
-                  <label for="degree">Суралцаж буй түвшин *</label>
-                  <select id="degree" name="degree" required>
+                  <label class="field-label" for="degree">Суралцаж буй түвшин *</label>
+                  <select class="field-control" id="degree" name="degree" required>
                     <option value="">— Сонгоно уу —</option>
                     <option value="bachelor">Бакалавр</option>
                     <option value="master">Магистр</option>
@@ -120,44 +79,44 @@
                   </select>
                 </div>
                 <div>
-                  <label for="avatar">Профайл зураг</label>
-                  <input type="file" id="avatar" name="avatar" accept="image/*">
+                  <label class="field-label" for="avatar">Профайл зураг</label>
+                  <input class="field-control file-control" type="file" id="avatar" name="avatar" accept="image/*">
                 </div>
-                <div class="full">
+                <div class="form-full">
                   <span class="field-label" id="skills-label">Сонирхож буй технологи</span>
-                  <div class="choice-row" role="group" aria-labelledby="skills-label">
-                    <label class="choice" for="html"><input type="checkbox" id="html" name="skills" value="HTML-CSS"> HTML / CSS</label>
-                    <label class="choice" for="js"><input type="checkbox" id="js" name="skills" value="JavaScript"> JavaScript</label>
-                    <label class="choice" for="php"><input type="checkbox" id="php" name="skills" value="PHP-MySQL"> PHP / MySQL</label>
+                  <div class="choice-group" role="group" aria-labelledby="skills-label">
+                    <label class="choice-label" for="html"><input class="choice-control" type="checkbox" id="html" name="skills" value="HTML-CSS"> HTML / CSS</label>
+                    <label class="choice-label" for="js"><input class="choice-control" type="checkbox" id="js" name="skills" value="JavaScript"> JavaScript</label>
+                    <label class="choice-label" for="php"><input class="choice-control" type="checkbox" id="php" name="skills" value="PHP-MySQL"> PHP / MySQL</label>
                   </div>
                 </div>
-                <div class="full">
-                  <label for="bio">Товч танилцуулга</label>
-                  <textarea id="bio" name="bio" rows="4" placeholder="Өөрийн тухай товч бичнэ үү."></textarea>
+                <div class="form-full">
+                  <label class="field-label" for="bio">Товч танилцуулга</label>
+                  <textarea class="field-control field-textarea" id="bio" name="bio" rows="4" placeholder="Өөрийн тухай товч бичнэ үү."></textarea>
                 </div>
               </div>
             </fieldset>
-            <div class="actions">
-              <button type="submit">Анкет илгээх</button>
-              <button type="reset">Дахин эхлүүлэх</button>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">Анкет илгээх</button>
+              <button class="button button-secondary" type="reset">Дахин эхлүүлэх</button>
             </div>
           </form>
         </section>
       </article>
 
-      <aside>
+      <aside class="content-aside">
         <section class="panel" aria-labelledby="interest-title">
-          <h2 id="interest-title">Миний сонирхол</h2>
-          <ul class="interests">
+          <h2 class="panel-heading" id="interest-title">Миний сонирхол</h2>
+          <ul class="interest-list">
             <li>Веб хөгжүүлэлт</li>
             <li>Фото зураг авах</li>
             <li>Кино үзэх</li>
           </ul>
         </section>
         <section class="panel" aria-labelledby="grades-title">
-          <h2 id="grades-title">Миний дүн</h2>
-          <table>
-            <caption>Сүүлийн улирлын хичээлийн дүн</caption>
+          <h2 class="panel-heading" id="grades-title">Миний дүн</h2>
+          <table class="grade-table">
+            <caption class="grade-caption">Сүүлийн улирлын хичээлийн дүн</caption>
             <thead>
               <tr><th scope="col">Хичээл</th><th scope="col">Дүн</th></tr>
             </thead>
@@ -169,12 +128,16 @@
           </table>
         </section>
         <section class="panel" id="tuslamj" aria-labelledby="help-title">
-          <h2 id="help-title">Тусламж</h2>
-          <p>Илгээхийн өмнө заавал бөглөх талбаруудаа шалгаарай. Утасны дугаар 8 оронтой байх ёстой.</p>
+          <h2 class="panel-heading" id="help-title">Тусламж</h2>
+          <p class="help-copy">Илгээхийн өмнө заавал бөглөх талбаруудаа шалгаарай. Утасны дугаар 8 оронтой байх ёстой.</p>
         </section>
       </aside>
     </div>
   </main>
-  <footer><p>&copy; 2026 Веб зохиомжийн хичээл. Бүх эрх хуулиар хамгаалагдсан.</p></footer>
+  <footer class="site-footer"><p>&copy; 2026 Веб зохиомжийн хичээл. Бүх эрх хуулиар хамгаалагдсан.</p></footer>
 </body>
 </html>
+
+
+
+
