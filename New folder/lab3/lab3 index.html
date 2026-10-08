@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Лабораторийн бүртгэлийн анкет">
+  <title>Лабораторийн бүртгэл · Лаб 03</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#ehlel" aria-label="Нүүр хуудас">LAB<span>03</span></a>
+    <p class="header-note">Веб зохиомж · CSS3</p>
+  </header>
+
+  <main class="page-main" id="ehlel">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">ЛАБОРАТОРИЙН АЖИЛ</p>
+      <h1 class="page-title" id="page-title">Бүртгэлийн анкет</h1>
+      <p class="intro-copy">Доорх мэдээллийг бөглөж бүртгэлээ үүсгэнэ үү. Одтой талбарууд заавал бөглөх шаардлагатай.</p>
+    </section>
+
+    <div class="content-layout">
+      <form class="registration-form" action="#" method="post">
+        <fieldset class="form-section">
+          <legend class="section-title">Хувийн мэдээлэл</legend>
+          <div class="form-grid">
+            <div class="form-field form-field-wide">
+              <label class="field-label" for="fullname">Овог, нэр <span class="required-mark">*</span></label>
+              <input class="field-control" type="text" id="fullname" name="fullname" placeholder="Жишээ: Болдбаатар Бат" required minlength="2" autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="email">Цахим шуудан <span class="required-mark">*</span></label>
+              <input class="field-control" type="email" id="email" name="email" placeholder="ner@example.com" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="phone">Утасны дугаар <span class="required-mark">*</span></label>
+              <input class="field-control" type="tel" id="phone" name="phone" placeholder="88112233" pattern="[0-9]{8}" title="8 оронтой дугаар оруулна уу" required autocomplete="tel">
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="birthdate">Төрсөн огноо <span class="required-mark">*</span></label>
+              <input class="field-control" type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="course">Суралцах түвшин <span class="required-mark">*</span></label>
+              <select class="field-control" id="course" name="course" required>
+                <option value="">Сонгоно уу</option>
+                <option value="beginner">Анхан шат</option>
+                <option value="intermediate">Дунд шат</option>
+                <option value="advanced">Ахисан шат</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend class="section-title">Сонирхол, нэмэлт мэдээлэл</legend>
+          <div class="form-field">
+            <span class="field-label" id="interest-label">Сонирхож буй чиглэл</span>
+            <div class="choice-list" role="group" aria-labelledby="interest-label">
+              <label class="choice-item"><input type="checkbox" name="interest" value="web"> Веб хөгжүүлэлт</label>
+              <label class="choice-item"><input type="checkbox" name="interest" value="design"> Дизайн</label>
+              <label class="choice-item"><input type="checkbox" name="interest" value="media"> Мультимедиа</label>
+            </div>
+          </div>
+          <div class="form-field form-field-wide">
+            <label class="field-label" for="message">Өөрийн тухай</label>
+            <textarea class="field-control field-textarea" id="message" name="message" rows="4" placeholder="Товч танилцуулгаа бичнэ үү."></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button class="button button-primary" type="submit">Бүртгүүлэх <span aria-hidden="true">→</span></button>
+          <button class="button button-secondary" type="reset">Цэвэрлэх</button>
+        </div>
+      </form>
+
+      <aside class="form-aside">
+        <div class="tip-card">
+          <span class="tip-icon" aria-hidden="true">i</span>
+          <h2 class="aside-title">Бөглөхөд анхаарах зүйл</h2>
+          <p class="aside-copy">Одтой талбаруудыг заавал бөглөнө. Утасны дугаараа 8 оронтой бичээрэй.</p>
+          <span class="info-badge" tabindex="0" aria-label="Мэдээлэл">Тусламж
+            <span class="tooltip" role="tooltip">Таны мэдээллийг зөвхөн бүртгэлд ашиглана.</span>
+          </span>
+        </div>
+        <p class="aside-caption">Лаборатори 03 · HTML формыг CSS-ээр загварчлах</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 · Веб зохиомж</p></footer>
+</body>
+</html>
