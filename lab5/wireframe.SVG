@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="Arial" font-size="12">
+  <rect width="1000" height="700" fill="#fff"/>
+  <text x="20" y="28" font-size="18" font-weight="bold">Wireframe: Бугуйн цаг - түүх ба төрөл</text>
+
+  <!-- DESKTOP -->
+  <text x="20" y="56" font-weight="bold">Desktop (1200px)</text>
+  <g fill="none" stroke="#333" stroke-width="1.5">
+    <rect x="20" y="64" width="620" height="620"/>
+    <rect x="20" y="64" width="620" height="36" fill="#e3e8ef"/>
+    <rect x="40" y="120" width="330" height="110" stroke-dasharray="4"/>
+    <circle cx="540" cy="175" r="55" fill="#e3e8ef"/>
+    <rect x="40" y="245" width="140" height="40"/><rect x="195" y="245" width="140" height="40"/>
+    <rect x="345" y="245" width="140" height="40"/><rect x="500" y="245" width="120" height="40"/>
+    <rect x="40" y="300" width="580" height="90" stroke-dasharray="4"/>
+    <rect x="40" y="405" width="185" height="60"/><rect x="238" y="405" width="185" height="60"/><rect x="435" y="405" width="185" height="60"/>
+    <rect x="40" y="478" width="580" height="40" stroke-dasharray="4"/>
+    <rect x="40" y="530" width="185" height="40"/><rect x="238" y="530" width="185" height="40"/><rect x="435" y="530" width="185" height="40"/>
+    <rect x="40" y="583" width="185" height="40"/><rect x="238" y="583" width="185" height="40"/><rect x="435" y="583" width="185" height="40"/>
+    <rect x="20" y="645" width="620" height="39" fill="#e3e8ef"/>
+  </g>
+  <g fill="#333">
+    <text x="30" y="86">Logo</text><text x="330" y="86">Нүүр | Түүх | Ажиллагаа | Бүтэц | Төрөл | Сонгох | Асуулт</text>
+    <text x="50" y="170">Гарчиг, тайлбар, товч</text><text x="505" y="180">Аналог цаг</text>
+    <text x="55" y="270">Стат 1</text><text x="210" y="270">Стат 2</text><text x="360" y="270">Стат 3</text><text x="520" y="270">Стат 4</text>
+    <text x="50" y="350">Түүх: цагийн шугам</text>
+    <text x="80" y="440">Механик</text><text x="280" y="440">Кварц</text><text x="480" y="440">Ухаалаг</text>
+    <text x="50" y="503">Харьцуулах хүснэгт</text>
+    <text x="70" y="555">Бүтэц 1-3</text><text x="270" y="555">Бүтэц 4-6</text><text x="470" y="555">Төрөл 1-3</text>
+    <text x="70" y="608">Төрөл 4-6</text><text x="270" y="608">Сонгох</text><text x="470" y="608">Арчилгаа + FAQ</text>
+    <text x="300" y="668">Footer</text>
+  </g>
+
+  <!-- MOBILE -->
+  <text x="700" y="56" font-weight="bold">Mobile (360px)</text>
+  <g fill="none" stroke="#333" stroke-width="1.5">
+    <rect x="700" y="64" width="210" height="620" rx="10"/>
+    <rect x="700" y="64" width="210" height="36" fill="#e3e8ef"/>
+    <line x1="878" y1="76" x2="896" y2="76"/><line x1="878" y1="82" x2="896" y2="82"/><line x1="878" y1="88" x2="896" y2="88"/>
+    <circle cx="805" cy="160" r="45" fill="#e3e8ef"/>
+    <rect x="715" y="215" width="180" height="55" stroke-dasharray="4"/>
+    <rect x="715" y="280" width="180" height="30"/><rect x="715" y="318" width="180" height="30"/>
+    <rect x="715" y="358" width="180" height="70" stroke-dasharray="4"/>
+    <rect x="715" y="438" width="180" height="40"/><rect x="715" y="486" width="180" height="40"/>
+    <rect x="715" y="534" width="180" height="40"/><rect x="715" y="582" width="180" height="40"/>
+    <rect x="700" y="650" width="210" height="34" fill="#e3e8ef"/>
+  </g>
+  <g fill="#333">
+    <text x="712" y="86">Logo</text>
+    <text x="780" y="165">Цаг</text><text x="735" y="248">Гарчиг + товч</text>
+    <text x="765" y="300">Стат (1 багана)</text><text x="765" y="338">Стат</text>
+    <text x="765" y="398">Түүх</text>
+    <text x="780" y="463">Карт</text><text x="780" y="511">Карт</text><text x="780" y="559">Карт</text><text x="760" y="607">Хүснэгт, FAQ</text>
+    <text x="780" y="672">Footer</text>
+  </g>
+  <text x="705" y="696" font-size="11">☰ дарахад цэс босоо жагсаалтаар нээгдэнэ</text>
+</svg>

@@ -1,0 +1,184 @@
+/* ===== Хувьсагч ===== */
+:root {
+  --ink: #14161c;
+  --ink-2: #1f232d;
+  --sand: #f6f1e8;
+  --gold: #c9a24d;
+  --gold-2: #e6c77a;
+  --text: #22252d;
+  --muted: #5a5f6b;
+  --white: #fff;
+  --radius: 14px;
+}
+
+/* ===== Суурь ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--sand);
+  overflow-x: hidden;
+}
+
+section { padding: 70px 40px; max-width: 1200px; margin: 0 auto; }
+h1 { font-size: 2.9rem; line-height: 1.15; margin-bottom: 18px; color: var(--ink); }
+h1 em { color: var(--gold); font-style: normal; }
+h2 { font-size: 2rem; margin-bottom: 12px; color: var(--ink); position: relative; padding-bottom: 12px; }
+h2::after { content: ""; position: absolute; left: 0; bottom: 0; width: 60px; height: 4px; background: var(--gold); border-radius: 2px; }
+h3 { margin: 6px 0 8px; color: var(--ink-2); }
+.lead { max-width: 720px; margin: 14px 0 32px; color: var(--muted); }
+.eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: .8rem; color: var(--gold); font-weight: 700; margin-bottom: 10px; }
+
+/* ===== Header / Навигаци ===== */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 40px;
+  background: var(--ink); color: var(--white);
+  box-shadow: 0 2px 10px rgba(0,0,0,.3);
+}
+.logo { color: var(--white); font-weight: 800; font-size: 1.4rem; text-decoration: none; }
+.logo span { color: var(--gold); }
+.nav { display: flex; gap: 22px; }
+.nav a { color: #d6d8de; text-decoration: none; padding: 6px 2px; border-bottom: 2px solid transparent; transition: .2s; }
+.nav a:hover { color: var(--white); border-color: var(--gold); }
+.menu-toggle, .hamburger { display: none; }
+
+/* ===== Hero ===== */
+.hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; padding-top: 80px; padding-bottom: 70px; }
+.hero-btns { display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; }
+.btn {
+  display: inline-block; background: var(--gold); color: var(--ink);
+  padding: 13px 26px; border-radius: 8px; text-decoration: none; font-weight: 700;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(201,162,77,.45); }
+.btn-outline { background: transparent; border: 2px solid var(--ink); color: var(--ink); }
+
+/* ===== Аналог цаг ===== */
+.hero-visual { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.clock {
+  position: relative; width: min(300px, 80vw); aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffdf7 0%, #f1e8d4 100%);
+  border: 12px solid var(--ink);
+  box-shadow: 0 0 0 4px var(--gold), 0 20px 30px rgba(0,0,0,.3);
+}
+.tick { position: absolute; font-weight: 700; color: var(--ink); font-size: 1.1rem; }
+.t12 { top: 8px; left: 50%; transform: translateX(-50%); }
+.t6 { bottom: 8px; left: 50%; transform: translateX(-50%); }
+.t3 { right: 14px; top: 50%; transform: translateY(-50%); }
+.t9 { left: 14px; top: 50%; transform: translateY(-50%); }
+.hand { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom center; transform: translateX(-50%); border-radius: 4px; }
+.hand.hour { width: 6px; height: 28%; background: var(--ink); }
+.hand.minute { width: 4px; height: 38%; background: var(--ink-2); }
+.hand.second { width: 2px; height: 42%; background: #c0392b; }
+.center-dot { position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; background: var(--gold); border: 3px solid var(--ink); border-radius: 50%; transform: translate(-50%, -50%); }
+.digital { font-family: "Courier New", monospace; font-size: 1.6rem; font-weight: 700; color: var(--ink); letter-spacing: 3px; }
+
+/* ===== Статистик ===== */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding-top: 0; }
+.stat { background: var(--ink); color: var(--white); padding: 24px 18px; border-radius: var(--radius); text-align: center; }
+.stat strong { display: block; font-size: 1.6rem; color: var(--gold-2); }
+.stat span { font-size: .88rem; color: #b6bac4; }
+
+/* ===== Цагийн шугам ===== */
+.timeline { margin-top: 20px; padding-left: 30px; border-left: 3px solid var(--gold); }
+.t-item { position: relative; background: var(--white); padding: 18px 22px; border-radius: var(--radius); margin-bottom: 20px; box-shadow: 0 3px 10px rgba(0,0,0,.07); }
+.t-item::before { content: ""; position: absolute; left: -41px; top: 24px; width: 16px; height: 16px; border-radius: 50%; background: var(--ink); border: 3px solid var(--sand); }
+.t-year { display: inline-block; background: var(--ink); color: var(--gold-2); padding: 2px 12px; border-radius: 20px; font-size: .85rem; font-weight: 700; }
+
+/* ===== Картууд ===== */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.cards.three { grid-template-columns: repeat(3, 1fr); }
+.card { background: var(--white); padding: 22px; border-radius: var(--radius); box-shadow: 0 3px 10px rgba(0,0,0,.07); transition: transform .25s, box-shadow .25s; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 22px rgba(0,0,0,.14); }
+.card-icon { font-size: 2rem; }
+.card.dark { background: var(--ink-2); color: #d6d8de; }
+.card.dark h3 { color: var(--gold-2); }
+
+/* ===== Хүснэгт ===== */
+.table-wrap { margin-top: 30px; overflow-x: auto; border-radius: var(--radius); box-shadow: 0 3px 10px rgba(0,0,0,.07); }
+table { width: 100%; border-collapse: collapse; background: var(--white); min-width: 520px; }
+th, td { padding: 14px 18px; text-align: left; }
+th { background: var(--ink); color: var(--white); }
+tr:nth-child(even) td { background: #faf6ee; }
+
+/* ===== Бүтэц ===== */
+.parts { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.parts li { background: var(--white); padding: 18px 20px; border-radius: var(--radius); border-left: 5px solid var(--gold); box-shadow: 0 3px 10px rgba(0,0,0,.07); }
+.parts b { display: block; color: var(--ink-2); margin-bottom: 4px; }
+.parts span { color: var(--muted); font-size: .95rem; }
+
+/* ===== Сонгох алхмууд ===== */
+.steps { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 26px; }
+.steps li { counter-increment: s; background: var(--white); padding: 24px 20px 20px; border-radius: var(--radius); position: relative; box-shadow: 0 3px 10px rgba(0,0,0,.07); }
+.steps li::before { content: counter(s); position: absolute; top: -14px; left: 18px; width: 34px; height: 34px; border-radius: 50%; background: var(--gold); color: var(--ink); font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.steps b { display: block; margin-bottom: 4px; color: var(--ink-2); }
+.steps span { color: var(--muted); font-size: .95rem; }
+
+/* ===== Арчилгаа ===== */
+.facts { background: var(--ink); color: #d6d8de; border-radius: var(--radius); margin-top: 20px; margin-bottom: 20px; }
+.facts h2 { color: var(--white); }
+.facts ul { margin-top: 20px; padding-left: 22px; }
+.facts li { margin-bottom: 10px; }
+
+/* ===== FAQ ===== */
+details { background: var(--white); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+summary { cursor: pointer; font-weight: 700; color: var(--ink-2); }
+details p { margin-top: 10px; color: var(--muted); }
+
+/* ===== Footer ===== */
+.footer { background: var(--ink); color: #b6bac4; text-align: center; padding: 30px 20px; }
+.to-top { display: inline-block; margin-top: 12px; color: var(--gold-2); text-decoration: none; font-weight: 700; }
+
+/* ===== Анимаци ===== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.show { opacity: 1; transform: none; }
+
+/* ===== Tablet (≤ 1024px) ===== */
+@media (max-width: 1024px) {
+  section { padding: 56px 28px; }
+  .header { padding: 14px 28px; }
+  .nav { gap: 14px; font-size: .92rem; }
+  h1 { font-size: 2.3rem; }
+  .cards, .cards.three { grid-template-columns: repeat(2, 1fr); }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .parts, .steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== Mobile (≤ 640px) ===== */
+@media (max-width: 640px) {
+  section { padding: 40px 16px; }
+  .header { padding: 12px 16px; flex-wrap: wrap; }
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.5rem; }
+
+  /* Hamburger цэс */
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+  .hamburger span { width: 26px; height: 3px; background: var(--white); border-radius: 2px; transition: .25s; }
+  .menu-toggle:checked + .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle:checked + .hamburger span:nth-child(2) { opacity: 0; }
+  .menu-toggle:checked + .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .nav { display: none; flex-direction: column; gap: 0; width: 100%; margin-top: 10px; }
+  .nav a { padding: 12px 4px; border-top: 1px solid rgba(255,255,255,.12); border-bottom: none; }
+  .menu-toggle:checked ~ .nav { display: flex; }
+
+  /* Нэг баганатай байрлал */
+  .hero { grid-template-columns: 1fr; padding-top: 40px; text-align: center; }
+  .hero-btns { justify-content: center; }
+  .hero-visual { order: -1; }
+  .stats, .cards, .cards.three, .parts, .steps { grid-template-columns: 1fr; }
+  .timeline { padding-left: 20px; }
+  .t-item::before { left: -31px; }
+  h2::after { width: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+}

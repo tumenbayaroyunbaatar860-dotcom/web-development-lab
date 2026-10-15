@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Бугуйн цагны түүх, бүтэц, төрөл, сонгох зөвлөгөө">
+  <title>Бугуйн цаг: Түүх ба Төрөл</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="#home" class="logo">⌚ Tsag<span>.mn</span></a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger" aria-label="Цэс нээх">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="nav">
+      <a href="#home">Нүүр</a>
+      <a href="#history">Түүх</a>
+      <a href="#how">Ажиллагаа</a>
+      <a href="#anatomy">Бүтэц</a>
+      <a href="#types">Төрөл</a>
+      <a href="#guide">Сонгох</a>
+      <a href="#faq">Асуулт</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Цаг хугацааг бугуйдаа</p>
+        <h1>Бугуйн цаг: <em>нарийн</em> механизм, мөнхийн хэв маяг</h1>
+        <p>Бугуйн цаг нь зөвхөн цаг хэмждэг хэрэгсэл биш, бидний хувийн хэв маяг, амжилт, хувь хүний түүхийг илтгэдэг эдлэл юм. Түүх, бүтэц, төрөл зүйлийг нь хамтдаа судалцгаая.</p>
+        <div class="hero-btns">
+          <a href="#history" class="btn">Түүхийг унших</a>
+          <a href="#types" class="btn btn-outline">Төрлүүдийг үзэх</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="clock" role="img" aria-label="Одоогийн цагийг харуулсан аналог цаг">
+          <span class="tick t12">12</span><span class="tick t3">3</span>
+          <span class="tick t6">6</span><span class="tick t9">9</span>
+          <div class="hand hour" id="hour-hand"></div>
+          <div class="hand minute" id="minute-hand"></div>
+          <div class="hand second" id="second-hand"></div>
+          <div class="center-dot"></div>
+        </div>
+        <p class="digital" id="digital">--:--:--</p>
+      </div>
+    </section>
+
+    <!-- СТАТИСТИК -->
+    <section class="stats">
+      <div class="stat"><strong>1868</strong><span>Эртний бугуйн цагуудын нэг</span></div>
+      <div class="stat"><strong>32 768 Гц</strong><span>Кварцын мэдрэгчийн давтамж</span></div>
+      <div class="stat"><strong>28 800</strong><span>Механик цагийн хэлбэлзэл/цаг (дээд)</span></div>
+      <div class="stat"><strong>24</strong><span>Цагийн бүс</span></div>
+    </section>
+
+    <!-- ТҮҮХ -->
+    <section id="history" class="history">
+      <h2>Бугуйн цагны түүх</h2>
+      <p class="lead">Эхэндээ цагийг халаасанд авч явдаг байсан бол бугуйд зүүдэг болсон нь том өөрчлөлт байлаа.</p>
+
+      <div class="timeline">
+        <div class="t-item">
+          <span class="t-year">16-р зуун</span>
+          <h3>Халаасны цаг</h3>
+          <p>Пүрш (spring) бүхий жижиг механизм бүтээгдэж, цагийг авч явах боломж бүрдсэн.</p>
+        </div>
+        <div class="t-item">
+          <span class="t-year">1868</span>
+          <h3>Эхний бугуйн цагнууд</h3>
+          <p>Швейцарийн Patek Philippe компани Унгарийн нэгэн гүнж хатагтайд зориулж бугуйн бугуйвч цаг хийсэн гэж үздэг. Тухайн үед үүнийг голдуу эмэгтэйчүүдийн гоёл гэж үздэг байв.</p>
+        </div>
+        <div class="t-item">
+          <span class="t-year">1904</span>
+          <h3>Практик хэрэглээ</h3>
+          <p>Cartier компани нисгэгч Альберто Сантос-Дюмонд зориулж нислэгийн үед гараа сул байлгах бугуйн цаг бүтээсэн гэдэг.</p>
+        </div>
+        <div class="t-item">
+          <span class="t-year">1914–1918</span>
+          <h3>Дайны нөлөө</h3>
+          <p>Дэлхийн нэгдүгээр дайнд цэргүүд бугуйн цаг өргөн ашигласнаар эрэгтэйчүүдийн дунд түгэн дэлгэрсэн.</p>
+        </div>
+        <div class="t-item">
+          <span class="t-year">1969</span>
+          <h3>Кварцын хувьсгал</h3>
+          <p>Seiko компани анхны арилжааны кварц бугуйн цаг (Astron)-ыг гаргаж, нарийвчлал нэмэгдэн, үнэ буурсан. Үүнийг Швейцарийн механик цагны салбарт "кварцын хямрал" гэж нэрлэдэг.</p>
+        </div>
+        <div class="t-item">
+          <span class="t-year">2015</span>
+          <h3>Ухаалаг цаг</h3>
+          <p>Apple Watch зэрэг ухаалаг цагнууд зүрхний хэмнэл, алхалт хэмжих, мэдэгдэл хүлээн авах боломжийг бугуйд авчирсан.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- АЖИЛЛАГАА -->
+    <section id="how" class="how">
+      <h2>Цаг хэрхэн ажилладаг вэ?</h2>
+      <p class="lead">Гол гурван төрлийн механизмын зарчим өөр өөр байдаг.</p>
+
+      <div class="cards three">
+        <article class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>Механик</h3>
+          <p>Пүрш хуримтлуулсан энергийг араагаар дамжуулж, балансын хүрд тогтмол хэмнэлээр хөдөлгөнө. Гараар эсвэл гараа хөдөлгөхөд автоматаар эргүүлж бүрдүүлдэг.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🔋</div>
+          <h3>Кварц</h3>
+          <p>Батерей кварц талстыг цахилгаанаар хөдөлгөж, 32 768 удаа/сек хэлбэлздэг. Хэлхээ үүнийг секунд болгон хувиргана.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">📱</div>
+          <h3>Ухаалаг</h3>
+          <p>Жижиг компьютер, мэдрэгч, дэлгэц, утастай болон утасгүй холболттой. Цагаас гадна олон функц гүйцэтгэдэг.</p>
+        </article>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Үзүүлэлт</th><th>Механик</th><th>Кварц</th><th>Ухаалаг</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Эрчим хүч</td><td>Пүрш</td><td>Батерей</td><td>Цэнэглэх батерей</td></tr>
+            <tr><td>Нарийвчлал</td><td>Дунд зэрэг</td><td>Өндөр</td><td>Маш өндөр (сүлжээгээр)</td></tr>
+            <tr><td>Засвар</td><td>Тогтмол үйлчилгээ</td><td>Батерей солих</td><td>Програм шинэчлэх</td></tr>
+            <tr><td>Үнэ</td><td>Дунд-өндөр</td><td>Хямд-дунд</td><td>Дунд-өндөр</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- БҮТЭЦ -->
+    <section id="anatomy" class="anatomy">
+      <h2>Цагны бүтэц</h2>
+      <p class="lead">Бугуйн цаг нь хэд хэдэн үндсэн хэсгээс бүрддэг.</p>
+
+      <ul class="parts">
+        <li><b>Хайрцаг (Case)</b><span>Механизмыг хамгаалдаг төмөр, титан эсвэл хуванцар бүрхүүл.</span></li>
+        <li><b>Дүрс (Dial)</b><span>Цагийн тоо, заагчтай нүүр хэсэг.</span></li>
+        <li><b>Шил (Crystal)</b><span>Дүрсийг хамгаалах. Сапфир шил зураасанд хамгийн тэсвэртэй.</span></li>
+        <li><b>Тэнхлэг (Crown)</b><span>Цагийг тохируулах, пүрш ороох товч.</span></li>
+        <li><b>Механизм (Movement)</b><span>Цагийг ажиллуулдаг "зүрх".</span></li>
+        <li><b>Оосор (Strap)</b><span>Арьс, төмөр, резин эсвэл даавуун.</span></li>
+      </ul>
+    </section>
+
+    <!-- ТӨРӨЛ -->
+    <section id="types" class="types">
+      <h2>Цагны төрлүүд</h2>
+      <p class="lead">Зориулалтаар нь ангилбал дараах хэд хэдэн төрөл бий.</p>
+
+      <div class="cards">
+        <article class="card dark">
+          <h3>Dress watch</h3>
+          <p>Нимгэн, энгийн, гоёмсог. Костюм, албан ёсны үйл ажиллагаанд.</p>
+        </article>
+        <article class="card dark">
+          <h3>Diver</h3>
+          <p>Усанд шумбахад зориулсан, усны даралтад тэсвэртэй, эргэдэг бөгж бүхий.</p>
+        </article>
+        <article class="card dark">
+          <h3>Pilot</h3>
+          <p>Том, хялбар уншигдах дүрс. Нислэгийн үед ашиглах зориулалттай.</p>
+        </article>
+        <article class="card dark">
+          <h3>Chronograph</h3>
+          <p>Секундомер функцтэй, нэмэлт товчтой цаг.</p>
+        </article>
+        <article class="card dark">
+          <h3>Field watch</h3>
+          <p>Энгийн, бат бөх, гадаа, цэргийн хэрэглээнд зориулсан.</p>
+        </article>
+        <article class="card dark">
+          <h3>Smartwatch</h3>
+          <p>Спорт, эрүүл мэнд, мэдэгдэл дагадаг ухаалаг төрөл.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- СОНГОХ ЗӨВЛӨГӨӨ -->
+    <section id="guide" class="guide">
+      <h2>Хэрхэн сонгох вэ?</h2>
+      <ol class="steps">
+        <li><b>Зориулалт</b><span>Өдөр тутам, ажил, спорт эсвэл гоёлд аль нь вэ гэдгээ тодорхойл.</span></li>
+        <li><b>Төсөв</b><span>Үнэ нь механизм, материал, брэндээс хамаарна. Өмнө нь хэмжээгээ тогтооно.</span></li>
+        <li><b>Хэмжээ</b><span>Хайрцгийн диаметр ихэвчлэн 34–44 мм. Бугуйныхаа хэмжээнд тохируулна.</span></li>
+        <li><b>Механизм</b><span>Нарийвчлал хүсвэл кварц, уламжлал, гар урлалыг үнэлбэл механик.</span></li>
+        <li><b>Ус тэсвэр</b><span>3 ATM нь зөвхөн дусал, 10 ATM орчим нь усанд сэлэхэд тохиромжтой.</span></li>
+        <li><b>Оосор</b><span>Тав тухтай, арьсанд мэдрэмтгий бол материалыг нь анхаар.</span></li>
+      </ol>
+    </section>
+
+    <!-- АРЧИЛГАА -->
+    <section class="facts">
+      <h2>Арчилгааны зөвлөмж</h2>
+      <ul>
+        <li>Механик цагийг 3–5 жил тутамд мэргэжлийн үйлчилгээнд оруулах нь зүйтэй.</li>
+        <li>Хүчтэй соронзон, огцом халуун, хүйтнээс хол байлгана.</li>
+        <li>Усан тэсвэрийн тэмдэглэл байсан ч тэнхлэгийг усанд байхдаа бүү хөдөлгө.</li>
+        <li>Оосрыг цэвэр, хуурай байлгана. Арьсан оосорт ус хүргэхгүй.</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <h2>Түгээмэл асуултууд</h2>
+      <details>
+        <summary>Автомат цаг батерей хэрэгтэй юу?</summary>
+        <p>Үгүй. Бугуйн хөдөлгөөнөөр дотор нь байх сэнс эргэж пүрш ороод явдаг. Удаан зүүгээгүй бол гараараа ороож өгч болно.</p>
+      </details>
+      <details>
+        <summary>Механик цаг яагаад хоцрох, түрүүлдэг вэ?</summary>
+        <p>Температур, байрлал, соронзон, хэрэглээний хэв маяг нөлөөлнө. Өдөрт хэдэн секундийн зөрүү нь хэвийн.</p>
+      </details>
+      <details>
+        <summary>Сапфир шил гэж юу вэ?</summary>
+        <p>Хиймэл сапфирээр хийсэн цагны шил. Маш бат бөх, зураас гарахад тэсвэртэй.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Lord Oyunbaatar · Лаб 5: Responsive статик вэб хуудас</p>
+    <a href="#home" class="to-top">↑ Дээш</a>
+  </footer>
+
+  <script>
+    // Гар утасны цэсийг холбоос дарахад хаах
+    document.querySelectorAll('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        document.getElementById('menu-toggle').checked = false;
+      });
+    });
+
+    // Аналог болон дижитал цаг
+    function tick() {
+      var d = new Date();
+      var s = d.getSeconds(), m = d.getMinutes(), h = d.getHours() % 12;
+      document.getElementById('second-hand').style.transform = 'translateX(-50%) rotate(' + (s * 6) + 'deg)';
+      document.getElementById('minute-hand').style.transform = 'translateX(-50%) rotate(' + (m * 6 + s * 0.1) + 'deg)';
+      document.getElementById('hour-hand').style.transform = 'translateX(-50%) rotate(' + (h * 30 + m * 0.5) + 'deg)';
+      var p = function (n) { return String(n).padStart(2, '0'); };
+      document.getElementById('digital').textContent = p(d.getHours()) + ':' + p(m) + ':' + p(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Хэсгүүдийг гүйлгэхэд аажмаар гаргах
+    var items = document.querySelectorAll('section, .card, .t-item');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1 });
+      items.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+    }
+  </script>
+</body>
+</html>
