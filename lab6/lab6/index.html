@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Бугуйн цагны зургийн цомог: 3D flip карт, CSS animation, видео, газрын зураг">
+  <title>Бугуйн цагны цомог</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#gallery">Агуулга руу алгасах</a>
+
+  <header class="header">
+    <div class="container header-in">
+      <a href="#top" class="logo">Tsag<span>.mn</span></a>
+
+      <nav class="nav" aria-label="Үндсэн цэс">
+        <a href="#gallery">Цомог</a>
+        <a href="#video">Видео</a>
+        <a href="#map">Газрын зураг</a>
+      </nav>
+
+      <div class="controls">
+        <button type="button" id="flip-all" class="btn btn-ghost" aria-pressed="false">Бүгдийг эргүүлэх</button>
+        <button type="button" id="theme-toggle" class="btn btn-ghost" aria-pressed="false">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/>
+          </svg>
+          <span>Харанхуй горим</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO + inline SVG -->
+    <section class="container hero">
+      <div class="hero-text">
+        <p class="eyebrow">Лаб 6 · CSS3 animation</p>
+        <h1>Бугуйн цагны <em>цомог</em></h1>
+        <p>Зургийн карт дээр хулганаа аваачвал эсвэл «Дэлгэрэнгүй» товчийг дарвал 3D байдлаар эргэж, цагны тухай мэдээлэл харуулна.</p>
+      </div>
+
+      <figure class="hero-art">
+        <svg viewBox="0 0 260 220" role="img" aria-labelledby="gear-title gear-desc">
+          <title id="gear-title">Эргэлддэг араанууд</title>
+          <desc id="gear-desc">Хоёр алтлаг араа бие биетэйгээ тохирч, эсрэг чиглэлд аажмаар эргэж байна.</desc>
+          <g class="gear gear-a">
+            <circle cx="95" cy="125" r="62" class="teeth" stroke-width="16" stroke-dasharray="12.5 11.85"/>
+            <circle cx="95" cy="125" r="54" class="body"/>
+            <circle cx="95" cy="125" r="38" class="hole"/>
+            <line x1="95" y1="87" x2="95" y2="163" class="spoke"/>
+            <line x1="57" y1="125" x2="133" y2="125" class="spoke"/>
+            <circle cx="95" cy="125" r="12" class="body"/>
+          </g>
+          <g class="gear gear-b">
+            <circle cx="180" cy="62" r="36" class="teeth" stroke-width="12" stroke-dasharray="11.8 10.8"/>
+            <circle cx="180" cy="62" r="30" class="body"/>
+            <circle cx="180" cy="62" r="18" class="hole"/>
+            <circle cx="180" cy="62" r="7" class="body"/>
+          </g>
+        </svg>
+      </figure>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="container section">
+      <h2>Цагны цомог</h2>
+      <p class="lead">Зургийн цомгоос зургаан төрлийн цагийг сонго. Карт бүрийн ард тухайн төрлийн товч үзүүлэлт байна.</p>
+
+      <ul class="gallery">
+
+        <li class="card" style="--i:0">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="face front">
+                <img src="img/photo1.jpg" width="1200" height="800" alt="Алтлаг хайрцагтай, цагаан дүрстэй, бор арьсан оосортой гоёлын бугуйн цаг" loading="lazy">
+                <h3 class="caption">Dress watch</h3>
+              </div>
+              <div class="face back">
+                <h3>Dress watch</h3>
+                <p>Нимгэн, энгийн, гоёмсог. Албан ёсны хувцастай зүүнэ.</p>
+                <dl class="specs">
+                  <div><dt>Хайрцаг</dt><dd>34–40 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Механик / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>3 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:1">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="face front">
+                <img src="img/photo2.jpg" width="1200" height="800" alt="Цэнхэр бөгжтэй, хар дүрстэй, резин оосортой шумбагчийн бугуйн цаг" loading="lazy">
+                <h3 class="caption">Diver</h3>
+              </div>
+              <div class="face back">
+                <h3>Diver</h3>
+                <p>Усанд шумбахад зориулсан, эргэдэг бөгжтэй, гэрэлтэх тэмдэгтэй.</p>
+                <dl class="specs">
+                  <div><dt>Хайрцаг</dt><dd>40–44 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Автомат / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>20 ATM хүртэл</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:2">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="face front">
+                <img src="img/photo3.jpg" width="1200" height="800" alt="Том арабын тоотой, хар дүрстэй, бор арьсан оосортой нисгэгчийн бугуйн цаг" loading="lazy">
+                <h3 class="caption">Pilot</h3>
+              </div>
+              <div class="face back">
+                <h3>Pilot</h3>
+                <p>Том тоотой, хол зайнаас ч хялбар уншигдах дүрстэй.</p>
+                <dl class="specs">
+                  <div><dt>Хайрцаг</dt><dd>40–46 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Автомат</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>6 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:3">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="face front">
+                <img src="img/photo4.jpg" width="1200" height="800" alt="Хоёр жижиг дугуй хэмжүүртэй, цагаан дүрстэй хронографын бугуйн цаг" loading="lazy">
+                <h3 class="caption">Chronograph</h3>
+              </div>
+              <div class="face back">
+                <h3>Chronograph</h3>
+                <p>Секундомер функцтэй, хажуугийн хоёр товчтой.</p>
+                <dl class="specs">
+                  <div><dt>Хайрцаг</dt><dd>38–44 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Автомат / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>10 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:4">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="face front">
+                <img src="img/photo5.jpg" width="1200" height="800" alt="Ногоон дүрстэй, даавуун оосортой талбайн бугуйн цаг" loading="lazy">
+                <h3 class="caption">Field watch</h3>
+              </div>
+              <div class="face back">
+                <h3>Field watch</h3>
+                <p>Энгийн, бат бөх, гадаа явахад зориулсан цэргийн хэв маягтай.</p>
+                <dl class="specs">
+                  <div><dt>Хайрцаг</dt><dd>36–42 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Механик / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>10 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:5">
+          <div class="flip">
+            <div class="flip-inner">
+              <div class="face front">
+                <img src="img/photo6.jpg" width="1200" height="800" alt="Өнгөт идэвхийн цагирагтай дэлгэцтэй, цагаан оосортой ухаалаг цаг" loading="lazy">
+                <h3 class="caption">Smartwatch</h3>
+              </div>
+              <div class="face back">
+                <h3>Smartwatch</h3>
+                <p>Алхалт, зүрхний хэмнэл хэмжиж, мэдэгдэл хүлээн авна.</p>
+                <dl class="specs">
+                  <div><dt>Дэлгэц</dt><dd>1.5–1.9 инч</dd></div>
+                  <div><dt>Цэнэг</dt><dd>1–7 хоног</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>5 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video" class="container section">
+      <h2>Видео</h2>
+      <p class="lead">Секундын заагчийн эргэлтийг харуулсан богино клип. Монгол хадмал (caption) байгаа.</p>
+      <figure class="media">
+        <video controls preload="metadata" playsinline poster="img/poster.jpg" width="640" height="360">
+          <source src="video/clip.webm" type="video/webm">
+          <source src="video/clip.mp4" type="video/mp4">
+          <track kind="captions" src="video/clip.mn.vtt" srclang="mn" label="Монгол" default>
+          Таны хөтөч видеог дэмжихгүй байна. <a href="video/clip.mp4">Видеог татаж авах</a>.
+        </video>
+        <figcaption>Аналог цагийн секундын заагч. Хадмалыг тоглуулагчийн CC товчоор асааж, унтрааж болно.</figcaption>
+      </figure>
+    </section>
+
+    <!-- IFRAME -->
+    <section id="map" class="container section">
+      <h2>Цагийн бүсийн эхлэл</h2>
+      <p class="lead">Лондонгийн Гринвичийн ажиглалтын төв нь 0° уртрагийг заадаг. Дэлхийн цагийн бүсүүдийг эндээс тоолдог.</p>
+      <figure class="media">
+        <iframe
+          title="Гринвичийн хааны ажиглалтын төвийн газрын зураг"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-0.0300%2C51.4700%2C0.0300%2C51.4850&amp;layer=mapnik&amp;marker=51.4769%2C-0.0005"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          width="640" height="360"></iframe>
+        <figcaption><a href="https://www.openstreetmap.org/?mlat=51.4769&amp;mlon=-0.0005#map=15/51.4769/-0.0005">Газрын зургийг том харах</a> · © OpenStreetMap contributors</figcaption>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-in">
+      <p>&copy; 2026 Lord Oyunbaatar · Лаб 6: CSS3 animation, transform, custom properties ба multimedia</p>
+      <a href="#top" class="to-top">↑ Дээш</a>
+    </div>
+  </footer>
+
+</body>
+</html>
