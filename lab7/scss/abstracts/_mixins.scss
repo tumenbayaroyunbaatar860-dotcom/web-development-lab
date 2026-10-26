@@ -1,0 +1,39 @@
+// _mixins.scss
+@use 'sass:map';
+@use 'tokens' as *;
+
+/// Responsive media query mixin
+/// @param {String | Number} $breakpoint - sm, md, lg, xl эсвэл шууд пиксел утга (жишээ: 640px)
+@mixin respond($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+/// Flexbox ашиглан элементүүдийг төвлөрүүлэх mixin
+/// @param {String} $direction - flex чиглэл (row эсвэл column)
+/// @param {Number} $gap - хоорондын зай
+/// @param {Boolean} $inline - inline-flex ашиглах эсэх
+@mixin flex-center($direction: row, $gap: 0, $inline: false) {
+  @if $inline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+  align-items: center;
+  justify-content: center;
+
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}

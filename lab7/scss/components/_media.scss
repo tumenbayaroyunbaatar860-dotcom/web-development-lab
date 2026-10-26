@@ -1,0 +1,31 @@
+// components/_media.scss
+@use '../abstracts/functions' as *;
+
+.media {
+  display: grid;
+  gap: var(--space-1);
+  max-width: 760px;
+
+  video,
+  iframe,
+  &__video,
+  &__iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: var(--radius);
+    background: #000;
+    box-shadow: var(--shadow);
+  }
+
+  figcaption,
+  &__caption {
+    color: var(--muted);
+    font-size: rem(14.7px);
+
+    a {
+      color: var(--text);
+    }
+  }
+}

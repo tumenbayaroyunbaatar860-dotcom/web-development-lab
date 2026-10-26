@@ -1,0 +1,15 @@
+{
+  "name": "lab7-scss",
+  "version": "1.0.0",
+  "description": "Лаб 7: Sass/SCSS preprocessor, BEM, Mixins, Functions",
+  "main": "script.js",
+  "scripts": {
+    "sass:watch": "sass --watch scss/main.scss:style.css",
+    "sass:build": "sass scss/main.scss:style.css --style=compressed --no-source-map",
+    "build": "npm run sass:build",
+    "watch": "npm run sass:watch"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

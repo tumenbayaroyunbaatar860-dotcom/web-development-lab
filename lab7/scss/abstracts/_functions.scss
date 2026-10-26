@@ -1,0 +1,31 @@
+// _functions.scss
+@use 'sass:math';
+@use 'sass:color';
+
+/// Pixel утгыг REM рүү хөрвүүлэх функц
+/// @param {Number} $px - Pixel утга (жишээ нь 16 эсвэл 16px)
+/// @param {Number} $base - Үндсэн фонтын хэмжээ (анхдагч 16px)
+/// @return {Number} REM утга
+@function rem($px, $base: 16px) {
+  // нэгжийг салгах
+  $unitless-px: if(math.is-unitless($px), $px, math.div($px, 1px));
+  $unitless-base: if(math.is-unitless($base), $base, math.div($base, 1px));
+
+  @return math.div($unitless-px, $unitless-base) * 1rem;
+}
+
+/// Өгөгдсөн өнгөний дэвсгэрт тохирох тод ялгарсан (contrast) өнгийг олох функц
+/// @param {Color} $color - Үндсэн өнгө
+/// @param {Color} $dark - Бараан өнгө (анхдагч: #14161c)
+/// @param {Color} $light - Цайвар өнгө (анхдагч: #ffffff)
+/// @return {Color} Сонгогдсон тод өнгө
+@function contrast($color, $dark: #14161c, $light: #ffffff) {
+  // Өнгөний гэрэлтэлтийг (lightness) шалгах
+  $lightness: color.channel($color, "lightness", $space: hsl);
+
+  @if $lightness > 55% {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}

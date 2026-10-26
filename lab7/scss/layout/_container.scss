@@ -1,0 +1,18 @@
+// layout/_container.scss
+@use '../abstracts/mixins' as *;
+
+.container {
+  width: min(1200px, 100% - 2 * var(--space-3));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-5);
+}
+
+@include respond('sm') {
+  :root {
+    --space-5: 2.5rem;
+    --space-4: 1.75rem;
+  }
+}
