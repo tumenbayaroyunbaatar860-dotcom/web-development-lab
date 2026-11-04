@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Лаборатори 8 - Тайлан</title>
+  <style>
+    @page { size: A4; margin: 18mm 18mm 20mm 18mm; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.5;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 0 0 4px 0;
+      color: #0f172a;
+      border-bottom: 2px solid #c9a24d;
+      padding-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 4px;
+      font-size: 12px;
+    }
+    .info-grid strong {
+      color: #334155;
+    }
+    .info-grid a {
+      color: #0284c7;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    h2 {
+      font-size: 14px;
+      color: #0f172a;
+      margin: 16px 0 8px 0;
+      border-left: 3px solid #c9a24d;
+      padding-left: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 11.5px;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+    .badge-success {
+      background: #dcfce7;
+      color: #15803d;
+    }
+    .conclusion {
+      background: #fefce8;
+      border-left: 4px solid #ca8a04;
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+    .code-box {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-family: Consolas, monospace;
+      font-size: 11px;
+      overflow-x: auto;
+      margin: 8px 0;
+      white-space: pre-wrap;
+    }
+    .text-center { text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Лаборатори 8. Bootstrap ба Tailwind CSS: нэг хуудас, хоёр арга</h1>
+  <div class="subtitle">Вэб хөгжүүлэлтийн лабораторийн ажлын тайлан</div>
+
+  <div class="info-card">
+    <div class="info-grid">
+      <strong>Оюутан:</strong> <span>Лхагва-Очир Оюунбаатар (baatrlize-)</span>
+      <strong>И-мэйл:</strong> <span>tumenbayaroyunbaatar860@gmail.com</span>
+      <strong>GitHub холбоос:</strong> <a href="https://github.com/tumenbayaroyunbaatar860-dotcom/web-development-lab">https://github.com/tumenbayaroyunbaatar860-dotcom/web-development-lab</a>
+      <strong>Commit Hash:</strong> <code>863eea23b8f0efd2ab5e31cef253179d99c16045</code>
+      <strong>Commit мессеж:</strong> <span>Add Lab 8: Bootstrap and Tailwind CSS comparison</span>
+      <strong>Огноо:</strong> <span>2026 оны 11-р сарын 04</span>
+    </div>
+  </div>
+
+  <h2>1. Даалгаврын биелэлтийн тойм</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30px">№</th>
+        <th>Даалгавар</th>
+        <th>Bootstrap хэрэгжүүлэлт</th>
+        <th>Tailwind хэрэгжүүлэлт</th>
+        <th style="width:70px" class="text-center">Төлөв</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td><strong>Navbar, 3 баганатай grid, form validation</strong></td>
+        <td>Navbar toggler, .row-cols-lg-3 card grid, .needs-validation маягт (CDN холболттой)</td>
+        <td>Flex responsive navbar, grid-cols-3 card grid, захиалгат JS validation</td>
+        <td class="text-center"><span class="badge badge-success">Биелсэн</span></td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td><strong>Tailwind CLI build</strong></td>
+        <td>CDN (Bootstrap 5.3.3 + Icons)</td>
+        <td>@tailwindcss/cli v4-ээр input.css-ээс output.css болгон minified build хийсэн</td>
+        <td class="text-center"><span class="badge badge-success">Биелсэн</span></td>
+      </tr>
+      <tr>
+        <td class="text-center">3</td>
+        <td><strong>Dark mode горим</strong></td>
+        <td><code>data-bs-theme="dark"</code> аттрибут болон toggle товч</td>
+        <td><code>@custom-variant dark (&:where(.dark, .dark *));</code></td>
+        <td class="text-center"><span class="badge badge-success">Биелсэн</span></td>
+      </tr>
+      <tr>
+        <td class="text-center">4</td>
+        <td><strong>Брэнд өнгө тодорхойлох</strong></td>
+        <td>CSS хувьсагч <code>--color-brand: #c9a24d</code> болон <code>.btn-brand</code></td>
+        <td><code>@theme { --color-brand: #c9a24d; }</code></td>
+        <td class="text-center"><span class="badge badge-success">Биелсэн</span></td>
+      </tr>
+      <tr>
+        <td class="text-center">5</td>
+        <td><strong>Хэмжилт, харьцуулалт ба дүгнэлт</strong></td>
+        <td>Файлын хэмжээ, class тоо, Lighthouse оноог хэмжиж хүснэгтэд оруулав</td>
+        <td>Tailwind болон Bootstrap хоорондын ялгааг тооцоолсон</td>
+        <td class="text-center"><span class="badge badge-success">Биелсэн</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Харьцуулсан хэмжилтийн хүснэгт</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Үзүүлэлт</th>
+        <th>Bootstrap 5 (CDN)</th>
+        <th>Tailwind CSS v4 (CLI build)</th>
+        <th>Ялгаа / Тайлбар</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>HTML файлын хэмжээ</strong></td>
+        <td>19.3 KB (19,760 bytes)</td>
+        <td>19.7 KB (20,196 bytes)</td>
+        <td>Бараг ижил (+0.4 KB Tailwind class-ын уртаас)</td>
+      </tr>
+      <tr>
+        <td><strong>CSS файлын хэмжээ</strong></td>
+        <td><strong>~318.7 KB</strong> (232.8 KB BS + 85.9 KB Icons)</td>
+        <td><strong>15.9 KB</strong> (output.css)</td>
+        <td><strong>Tailwind 95%-иар бага</strong> (Зөвхөн хэрэглэсэн загварууд үлдсэн)</td>
+      </tr>
+      <tr>
+        <td><strong>JS сангийн хэмжээ</strong></td>
+        <td>80.7 KB (bootstrap.bundle.min.js)</td>
+        <td>0 KB гадаад (1.2 KB цэвэр JS)</td>
+        <td>Tailwind-д тусдаа JS сан шаардлагагүй</td>
+      </tr>
+      <tr>
+        <td><strong>Гадаад сүлжээний хүсэлт</strong></td>
+        <td>3 хүсэлт (jsdelivr CDN)</td>
+        <td>0 хүсэлт</td>
+        <td>Tailwind бүхлээрээ орон нутагт, офлайн ажиллана</td>
+      </tr>
+      <tr>
+        <td><strong>Нэг картын нийт class тоо</strong></td>
+        <td><strong>24</strong> class</td>
+        <td><strong>39</strong> class</td>
+        <td>Bootstrap бэлэн бүрэлдэхүүнтэй тул бага</td>
+      </tr>
+      <tr>
+        <td><strong>Нэг картын ялгаатай class тоо</strong></td>
+        <td><strong>15</strong> class</td>
+        <td><strong>25</strong> class</td>
+        <td>Tailwind utility class-ууд тус тусдаа бичигддэг</td>
+      </tr>
+      <tr>
+        <td><strong>Картын эх div-ийн class тоо</strong></td>
+        <td><strong>4</strong> (.card .h-100 .shadow-sm .border-0)</td>
+        <td><strong>7</strong> (дугуйралт, сүүдэр, дэвсгэр, hover гэх мэт)</td>
+        <td>Tailwind илүү уян хатан задарсан</td>
+      </tr>
+      <tr>
+        <td><strong>Lighthouse: Performance</strong></td>
+        <td><strong>93</strong> / 100</td>
+        <td><strong>99</strong> / 100</td>
+        <td>Tailwind-ийн жижиг CSS, 0 гадаад саатал нөлөөлсөн</td>
+      </tr>
+      <tr>
+        <td><strong>Lighthouse: Accessibility</strong></td>
+        <td><strong>100</strong> / 100</td>
+        <td><strong>100</strong> / 100</td>
+        <td>ARIA, өнгөний тодосгогч, form label бүрэн хангагдсан</td>
+      </tr>
+      <tr>
+        <td><strong>Lighthouse: Best Practices</strong></td>
+        <td><strong>100</strong> / 100</td>
+        <td><strong>100</strong> / 100</td>
+        <td>Орчин үеийн HTML5/CSS кодчиллын стандарт</td>
+      </tr>
+      <tr>
+        <td><strong>Lighthouse: SEO</strong></td>
+        <td><strong>100</strong> / 100</td>
+        <td><strong>100</strong> / 100</td>
+        <td>Meta тайлбар, гарчиг, хариу үйлдэлтэй бүтэц</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Нэг догол мөр дүгнэлт</h2>
+  <div class="conclusion">
+    <strong>Дүгнэлт:</strong> Bootstrap 5 нь бэлэн бүрэлдэхүүн (components), цөөн тооны class болон хурдан прототип хийхэд нэн тохиромжтой боловч шаардлагагүй бүх загварыг агуулсан 300+ KB хэмжээтэй том санг ачаалладаг сул талтай бол; Tailwind CSS v4 нь HTML дотор олон тооны utility class бичих шаарддаг ч @tailwindcss/cli-ийн дэвшилтэт сканнерийн ачаар эцсийн CSS файлын хэмжээг ердөө 15.9 KB хүртэл 95 хувиар эрс багасгаж, 0 гадаад хамааралтайгаар Lighthouse Performance оноог 99 хүргэн, брэнд өнгө болон dark mode-ийг илүү уян хатан, нарийвчлалтай удирдах боломжийг олгож байна.
+  </div>
+
+  <h2>4. GitHub Push баталгаажуулалт (Git Log)</h2>
+  <div class="code-box">$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean
+
+$ git log -1 --stat
+commit 863eea23b8f0efd2ab5e31cef253179d99c16045
+Author: baatrlize- &lt;tumenbayaroyunbaatar860@gmail.com&gt;
+Date:   Wed Nov 4 18:42:59 2026 +0800
+
+    Add Lab 8: Bootstrap and Tailwind CSS comparison
+
+ 26 files changed, 889 insertions(+)
+
+$ git remote -v
+origin  https://github.com/tumenbayaroyunbaatar860-dotcom/web-development-lab.git (fetch)
+origin  https://github.com/tumenbayaroyunbaatar860-dotcom/web-development-lab.git (push)</div>
+
+</body>
+</html>
