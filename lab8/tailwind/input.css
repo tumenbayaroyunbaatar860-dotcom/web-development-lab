@@ -1,0 +1,22 @@
+/* Tailwind input file */
+@import "tailwindcss";
+
+/* Custom brand color via @theme */
+@theme {
+  --color-brand: #c9a24d;
+  --color-brand-hover: #b08a3a;
+  --color-brand-dark: #d6ae5a;
+  --color-brand-dark-hover: #c49b47;
+  --color-brand-text: #14161c;
+}
+
+/* Dark mode custom variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+}

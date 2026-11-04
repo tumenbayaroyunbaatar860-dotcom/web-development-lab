@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="mn" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Бугуйн цагны зургийн цомог – Tailwind CSS хувилбар (Лаб 8)">
+  <title>Бугуйн цагны цомог – Tailwind</title>
+  <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-200 dark:bg-gray-950 dark:text-gray-200">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3">
+      <a href="#top" class="text-xl font-extrabold no-underline">Tsag<span class="text-brand">.mn</span></a>
+
+      <!-- Mobile menu button -->
+      <button type="button" id="menu-btn" class="rounded-md border border-gray-600 p-2 text-gray-300 hover:text-white lg:hidden" aria-label="Цэсийг нээх">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <div id="nav-links" class="hidden w-full items-center gap-6 lg:flex lg:w-auto">
+        <a href="#gallery" class="block py-1 text-gray-400 transition-colors hover:text-white">Цомог</a>
+        <a href="#video" class="block py-1 text-gray-400 transition-colors hover:text-white">Видео</a>
+        <a href="#map" class="block py-1 text-gray-400 transition-colors hover:text-white">Газрын зураг</a>
+        <a href="#contact" class="block py-1 text-gray-400 transition-colors hover:text-white">Холбоо барих</a>
+      </div>
+
+      <button type="button" id="theme-toggle" class="rounded-lg border-2 border-brand px-3 py-1.5 text-sm font-bold text-brand transition-colors hover:bg-brand hover:text-brand-text">
+        🌙 Харанхуй горим
+      </button>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="px-4 py-16">
+      <div class="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-[1.3fr_1fr]">
+        <div>
+          <p class="mb-2 text-xs font-bold uppercase tracking-[.16em] text-brand">Лаб 8 · Tailwind хувилбар</p>
+          <h1 class="mb-4 text-4xl font-bold leading-tight md:text-5xl">Бугуйн цагны <span class="text-brand">цомог</span></h1>
+          <p class="max-w-[55ch] text-gray-500 dark:text-gray-400">Зургийн картуудаас зургаан төрлийн цагийг сонго. Карт бүрийн ард тухайн төрлийн товч үзүүлэлт байна.</p>
+        </div>
+        <div class="text-center">
+          <svg viewBox="0 0 260 220" role="img" aria-label="Эргэлддэг араанууд" class="mx-auto w-full max-w-[260px]">
+            <g class="origin-center animate-[spin_14s_linear_infinite]" style="transform-box:fill-box">
+              <circle cx="95" cy="125" r="62" fill="none" stroke="currentColor" stroke-width="16" stroke-dasharray="12.5 11.85" class="text-brand"/>
+              <circle cx="95" cy="125" r="54" fill="currentColor" class="text-brand"/>
+              <circle cx="95" cy="125" r="38" class="fill-gray-50 dark:fill-gray-950"/>
+              <line x1="95" y1="87" x2="95" y2="163" stroke="currentColor" stroke-width="8" class="text-brand"/>
+              <line x1="57" y1="125" x2="133" y2="125" stroke="currentColor" stroke-width="8" class="text-brand"/>
+              <circle cx="95" cy="125" r="12" fill="currentColor" class="text-brand"/>
+            </g>
+            <g class="origin-center animate-[spin_8.75s_linear_infinite_reverse]" style="transform-box:fill-box">
+              <circle cx="180" cy="62" r="36" fill="none" stroke="currentColor" stroke-width="12" stroke-dasharray="11.8 10.8" class="text-brand"/>
+              <circle cx="180" cy="62" r="30" fill="currentColor" class="text-brand"/>
+              <circle cx="180" cy="62" r="18" class="fill-gray-50 dark:fill-gray-950"/>
+              <circle cx="180" cy="62" r="7" fill="currentColor" class="text-brand"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY (3 баганатай card grid) ===== -->
+    <section id="gallery" class="px-4 py-12">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="relative mb-1 pb-3 text-2xl font-bold md:text-3xl">Цагны цомог
+          <span class="absolute bottom-0 left-0 h-1 w-[60px] rounded bg-brand"></span>
+        </h2>
+        <p class="mb-8 max-w-[65ch] text-gray-500 dark:text-gray-400">Зургийн цомгоос зургаан төрлийн цагийг сонго.</p>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Card 1 -->
+          <div class="overflow-hidden rounded-xl bg-white shadow-md transition-transform hover:-translate-y-1 dark:bg-gray-900">
+            <img src="img/photo1.jpg" width="1200" height="800" class="aspect-[4/3] w-full object-cover" alt="Гоёлын бугуйн цаг" loading="lazy">
+            <div class="p-4">
+              <h3 class="mb-1 text-lg font-bold">Dress watch</h3>
+              <p class="mb-3 text-sm text-gray-500 dark:text-gray-400">Нимгэн, энгийн, гоёмсог. Албан ёсны хувцастай зүүнэ.</p>
+              <dl class="space-y-1 border-t border-gray-200 pt-2 text-sm dark:border-gray-700">
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Хайрцаг</dt><dd class="font-bold">34–40 мм</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Механизм</dt><dd class="font-bold">Механик / кварц</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Ус тэсвэр</dt><dd class="font-bold">3 ATM</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="overflow-hidden rounded-xl bg-white shadow-md transition-transform hover:-translate-y-1 dark:bg-gray-900">
+            <img src="img/photo2.jpg" width="1200" height="800" class="aspect-[4/3] w-full object-cover" alt="Шумбагчийн бугуйн цаг" loading="lazy">
+            <div class="p-4">
+              <h3 class="mb-1 text-lg font-bold">Diver</h3>
+              <p class="mb-3 text-sm text-gray-500 dark:text-gray-400">Усанд шумбахад зориулсан, эргэдэг бөгжтэй, гэрэлтэх тэмдэгтэй.</p>
+              <dl class="space-y-1 border-t border-gray-200 pt-2 text-sm dark:border-gray-700">
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Хайрцаг</dt><dd class="font-bold">40–44 мм</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Механизм</dt><dd class="font-bold">Автомат / кварц</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Ус тэсвэр</dt><dd class="font-bold">20 ATM хүртэл</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="overflow-hidden rounded-xl bg-white shadow-md transition-transform hover:-translate-y-1 dark:bg-gray-900">
+            <img src="img/photo3.jpg" width="1200" height="800" class="aspect-[4/3] w-full object-cover" alt="Нисгэгчийн бугуйн цаг" loading="lazy">
+            <div class="p-4">
+              <h3 class="mb-1 text-lg font-bold">Pilot</h3>
+              <p class="mb-3 text-sm text-gray-500 dark:text-gray-400">Том тоотой, хол зайнаас ч хялбар уншигдах дүрстэй.</p>
+              <dl class="space-y-1 border-t border-gray-200 pt-2 text-sm dark:border-gray-700">
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Хайрцаг</dt><dd class="font-bold">40–46 мм</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Механизм</dt><dd class="font-bold">Автомат</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Ус тэсвэр</dt><dd class="font-bold">6 ATM</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="overflow-hidden rounded-xl bg-white shadow-md transition-transform hover:-translate-y-1 dark:bg-gray-900">
+            <img src="img/photo4.jpg" width="1200" height="800" class="aspect-[4/3] w-full object-cover" alt="Хронографын бугуйн цаг" loading="lazy">
+            <div class="p-4">
+              <h3 class="mb-1 text-lg font-bold">Chronograph</h3>
+              <p class="mb-3 text-sm text-gray-500 dark:text-gray-400">Секундомер функцтэй, хажуугийн хоёр товчтой.</p>
+              <dl class="space-y-1 border-t border-gray-200 pt-2 text-sm dark:border-gray-700">
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Хайрцаг</dt><dd class="font-bold">38–44 мм</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Механизм</dt><dd class="font-bold">Автомат / кварц</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Ус тэсвэр</dt><dd class="font-bold">10 ATM</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="overflow-hidden rounded-xl bg-white shadow-md transition-transform hover:-translate-y-1 dark:bg-gray-900">
+            <img src="img/photo5.jpg" width="1200" height="800" class="aspect-[4/3] w-full object-cover" alt="Талбайн бугуйн цаг" loading="lazy">
+            <div class="p-4">
+              <h3 class="mb-1 text-lg font-bold">Field watch</h3>
+              <p class="mb-3 text-sm text-gray-500 dark:text-gray-400">Энгийн, бат бөх, гадаа явахад зориулсан цэргийн хэв маягтай.</p>
+              <dl class="space-y-1 border-t border-gray-200 pt-2 text-sm dark:border-gray-700">
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Хайрцаг</dt><dd class="font-bold">36–42 мм</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Механизм</dt><dd class="font-bold">Механик / кварц</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Ус тэсвэр</dt><dd class="font-bold">10 ATM</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="overflow-hidden rounded-xl bg-white shadow-md transition-transform hover:-translate-y-1 dark:bg-gray-900">
+            <img src="img/photo6.jpg" width="1200" height="800" class="aspect-[4/3] w-full object-cover" alt="Ухаалаг цаг" loading="lazy">
+            <div class="p-4">
+              <h3 class="mb-1 text-lg font-bold">Smartwatch</h3>
+              <p class="mb-3 text-sm text-gray-500 dark:text-gray-400">Алхалт, зүрхний хэмнэл хэмжиж, мэдэгдэл хүлээн авна.</p>
+              <dl class="space-y-1 border-t border-gray-200 pt-2 text-sm dark:border-gray-700">
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Дэлгэц</dt><dd class="font-bold">1.5–1.9 инч</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Цэнэг</dt><dd class="font-bold">1–7 хоног</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-500 dark:text-gray-400">Ус тэсвэр</dt><dd class="font-bold">5 ATM</dd></div>
+              </dl>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VIDEO ===== -->
+    <section id="video" class="bg-gray-100 px-4 py-12 dark:bg-gray-900">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="relative mb-1 pb-3 text-2xl font-bold md:text-3xl">Видео
+          <span class="absolute bottom-0 left-0 h-1 w-[60px] rounded bg-brand"></span>
+        </h2>
+        <p class="mb-8 text-gray-500 dark:text-gray-400">Секундын заагчийн эргэлтийг харуулсан богино клип.</p>
+        <div class="max-w-3xl overflow-hidden rounded-xl shadow-lg">
+          <video controls preload="metadata" playsinline poster="img/poster.jpg" class="aspect-video w-full bg-black">
+            <source src="video/clip.webm" type="video/webm">
+            <source src="video/clip.mp4" type="video/mp4">
+            <track kind="captions" src="video/clip.mn.vtt" srclang="mn" label="Монгол" default>
+            Таны хөтөч видеог дэмжихгүй байна.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MAP ===== -->
+    <section id="map" class="px-4 py-12">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="relative mb-1 pb-3 text-2xl font-bold md:text-3xl">Цагийн бүсийн эхлэл
+          <span class="absolute bottom-0 left-0 h-1 w-[60px] rounded bg-brand"></span>
+        </h2>
+        <p class="mb-8 text-gray-500 dark:text-gray-400">Лондонгийн Гринвичийн ажиглалтын төв нь 0° уртрагийг заадаг.</p>
+        <div class="max-w-3xl overflow-hidden rounded-xl shadow-lg">
+          <iframe
+            title="Гринвичийн хааны ажиглалтын төвийн газрын зураг"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-0.0300%2C51.4700%2C0.0300%2C51.4850&layer=mapnik&marker=51.4769%2C-0.0005"
+            loading="lazy" referrerpolicy="no-referrer"
+            class="aspect-video w-full border-0"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT FORM (JS Validation) ===== -->
+    <section id="contact" class="bg-gray-100 px-4 py-12 dark:bg-gray-900">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="relative mb-1 pb-3 text-2xl font-bold md:text-3xl">Холбоо барих
+          <span class="absolute bottom-0 left-0 h-1 w-[60px] rounded bg-brand"></span>
+        </h2>
+        <p class="mb-8 text-gray-500 dark:text-gray-400">Санал хүсэлтээ бидэнд илгээнэ үү.</p>
+
+        <form id="contactForm" class="max-w-xl space-y-4" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="formName" class="mb-1 block text-sm font-medium">Нэр</label>
+              <input type="text" id="formName" required
+                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-800">
+              <p class="mt-1 hidden text-xs text-red-500" data-error>Нэрээ бичнэ үү.</p>
+            </div>
+            <div>
+              <label for="formEmail" class="mb-1 block text-sm font-medium">И-мэйл</label>
+              <input type="email" id="formEmail" required
+                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-800">
+              <p class="mt-1 hidden text-xs text-red-500" data-error>Зөв и-мэйл оруулна уу.</p>
+            </div>
+          </div>
+          <div>
+            <label for="formSubject" class="mb-1 block text-sm font-medium">Сэдэв</label>
+            <select id="formSubject" required
+              class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-800">
+              <option value="" selected disabled>Сонгох...</option>
+              <option value="question">Асуулт</option>
+              <option value="feedback">Санал</option>
+              <option value="other">Бусад</option>
+            </select>
+            <p class="mt-1 hidden text-xs text-red-500" data-error>Сэдэв сонгоно уу.</p>
+          </div>
+          <div>
+            <label for="formMessage" class="mb-1 block text-sm font-medium">Зурвас</label>
+            <textarea id="formMessage" rows="4" required
+              class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-800"></textarea>
+            <p class="mt-1 hidden text-xs text-red-500" data-error>Зурвас бичнэ үү.</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <input type="checkbox" id="formAgree" required class="mt-1 rounded border-gray-300 text-brand focus:ring-brand">
+            <label for="formAgree" class="text-sm">Үйлчилгээний нөхцлийг зөвшөөрч байна</label>
+          </div>
+          <p class="hidden text-xs text-red-500" id="agreeError">Нөхцлийг зөвшөөрөх шаардлагатай.</p>
+          <button type="submit"
+            class="rounded-lg bg-brand px-6 py-2.5 font-bold text-brand-text transition-colors hover:bg-brand-hover">
+            Илгээх
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-gray-900 py-6 text-center text-gray-400">
+    <div class="mx-auto max-w-7xl px-4">
+      <p class="mb-1">&copy; 2026 Lord Oyunbaatar · Лаб 8: Tailwind хувилбар</p>
+      <a href="#top" class="font-bold text-brand no-underline">↑ Дээш</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ===== Mobile menu toggle =====
+      var menuBtn = document.getElementById('menu-btn');
+      var navLinks = document.getElementById('nav-links');
+      menuBtn.addEventListener('click', function () {
+        navLinks.classList.toggle('hidden');
+      });
+
+      // ===== Dark mode toggle =====
+      var html = document.documentElement;
+      var btn  = document.getElementById('theme-toggle');
+
+      function setTheme(theme) {
+        if (theme === 'dark') {
+          html.classList.add('dark');
+          html.classList.remove('light');
+          btn.textContent = '☀️ Гэрэлтэй горим';
+        } else {
+          html.classList.remove('dark');
+          html.classList.add('light');
+          btn.textContent = '🌙 Харанхуй горим';
+        }
+        try { localStorage.setItem('lab8-tw-theme', theme); } catch(e) {}
+      }
+
+      var stored;
+      try { stored = localStorage.getItem('lab8-tw-theme'); } catch(e) { stored = null; }
+      if (stored === 'dark' || stored === 'light') setTheme(stored);
+
+      btn.addEventListener('click', function () {
+        var isDark = html.classList.contains('dark');
+        setTheme(isDark ? 'light' : 'dark');
+      });
+
+      // ===== Form validation =====
+      var form = document.getElementById('contactForm');
+      form.addEventListener('submit', function (e) {
+        var valid = true;
+        var fields = form.querySelectorAll('[required]');
+        fields.forEach(function (f) {
+          var errEl = f.type === 'checkbox'
+            ? document.getElementById('agreeError')
+            : f.parentElement.querySelector('[data-error]');
+          if (!f.checkValidity()) {
+            valid = false;
+            if (errEl) errEl.classList.remove('hidden');
+            f.classList.add('border-red-500');
+          } else {
+            if (errEl) errEl.classList.add('hidden');
+            f.classList.remove('border-red-500');
+          }
+        });
+        if (!valid) { e.preventDefault(); e.stopPropagation(); }
+      });
+    })();
+  </script>
+
+</body>
+</html>
