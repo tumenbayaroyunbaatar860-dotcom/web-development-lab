@@ -1,0 +1,49 @@
+// base/_root.scss
+@use '../abstracts/tokens' as *;
+
+:root {
+  // Өнгөний custom properties үүсгэх
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+
+  // Радиусын custom properties үүсгэх
+  @each $name, $value in $radii {
+    --radius-#{$name}: #{$value};
+  }
+  --radius: #{map-get($radii, 'default')};
+
+  // Зайн custom properties үүсгэх
+  @each $name, $value in $spacing {
+    --space-#{$name}: #{$value};
+  }
+
+  // Хугацаа болон хөдөлгөөний хувьсагчид
+  @each $name, $value in $transitions {
+    --#{$name}: #{$value};
+  }
+
+  --shadow: #{map-get($shadows, 'light')};
+  --font: #{$font-family-base};
+  color-scheme: light;
+}
+
+// Dark mode: системийн тохиргоо (хэрэв хэрэглэгч сонгоогүй бол)
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @each $name, $value in $colors-dark {
+      --#{$name}: #{$value};
+    }
+    --shadow: #{map-get($shadows, 'dark')};
+    color-scheme: dark;
+  }
+}
+
+// Dark mode: хэрэглэгч товчоор сонгосон үед
+:root[data-theme="dark"] {
+  @each $name, $value in $colors-dark {
+    --#{$name}: #{$value};
+  }
+  --shadow: #{map-get($shadows, 'dark')};
+  color-scheme: dark;
+}

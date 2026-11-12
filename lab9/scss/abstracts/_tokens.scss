@@ -1,0 +1,70 @@
+// _tokens.scss
+// Өнгө, радиус, breakpoint, зай зэргийг Sass map болгон тодорхойлов
+
+$colors: (
+  'bg': #f6f1e8,
+  'surface': #ffffff,
+  'text': #22252d,
+  'muted': #5a5f6b,
+  'line': #e4dccb,
+  'ink': #14161c,
+  'on-ink': #ffffff,
+  'on-ink-muted': #b6bac4,
+  'gold': #c9a24d,
+  'gold-soft': #e6c77a,
+  'on-gold': #14161c,
+  'focus': #1d6fd8
+);
+
+$colors-dark: (
+  'bg': #0e1015,
+  'surface': #181b23,
+  'text': #e9e6df,
+  'muted': #a0a6b2,
+  'line': #2a2f3b,
+  'ink': #1b1f29,
+  'on-ink': #f3f1ec,
+  'on-ink-muted': #a9afbb,
+  'gold': #d6ae5a,
+  'gold-soft': #ecd08a,
+  'on-gold': #14161c,
+  'focus': #6aa8ff
+);
+
+$radii: (
+  'sm': 4px,
+  'md': 8px,
+  'lg': 14px,
+  'default': 14px,
+  'full': 9999px
+);
+
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px
+);
+
+$spacing: (
+  '1': 0.5rem,
+  '2': 1rem,
+  '3': 1.5rem,
+  '4': 2.5rem,
+  '5': 4rem
+);
+
+$shadows: (
+  'light': 0 10px 24px rgba(20, 22, 28, 0.14),
+  'dark': 0 10px 24px rgba(0, 0, 0, 0.5),
+  'card-hover': 0 16px 32px rgba(20, 22, 28, 0.28)
+);
+
+$transitions: (
+  'dur-fast': 0.2s,
+  'dur': 0.7s,
+  'ease': cubic-bezier(0.2, 0.7, 0.2, 1),
+  'stagger': 110ms
+);
+
+$font-family-base: ("Segoe UI", system-ui, -apple-system, Arial, Helvetica, sans-serif);

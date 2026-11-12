@@ -1,0 +1,29 @@
+// =========================================================
+// Лаб 7: Sass/SCSS Modular Architecture
+// =========================================================
+
+// 1. Abstracts (Variables, Tokens, Functions, Mixins)
+@use 'abstracts/tokens';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
+
+// 2. Base (Root variables, Reset, Typography, Keyframes)
+@use 'base/root';
+@use 'base/base';
+@use 'base/typography';
+@use 'base/animations';
+
+// 3. Layout (Container, Grid)
+@use 'layout/container';
+@use 'layout/gallery';
+
+// 4. Components (BEM structured components)
+@use 'components/buttons';
+@use 'components/header';
+@use 'components/hero';
+@use 'components/card';
+@use 'components/media';
+@use 'components/footer';
+
+// 5. Utilities (@each generated utility classes)
+@use 'utilities/utilities';

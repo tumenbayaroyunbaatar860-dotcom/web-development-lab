@@ -1,0 +1,166 @@
+// components/_card.scss
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  animation: rise 0.7s var(--ease) backwards;
+  animation-delay: calc(var(--i, 0) * var(--stagger));
+  transition: transform var(--dur-fast) var(--ease), filter var(--dur-fast);
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+  }
+
+  // 3D Flip бүтэц
+  &__flip,
+  .flip {
+    perspective: 1000px;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+  }
+
+  &__inner,
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform var(--dur) var(--ease);
+  }
+
+  &.is-flipped &__inner,
+  &.is-flipped .flip-inner,
+  &--flipped &__inner {
+    transform: rotateY(180deg);
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    &:hover &__inner,
+    &:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  // Картны нүүр ба ар тал
+  &__face,
+  .face {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+
+    .card:hover &,
+    .card:focus-within & {
+      box-shadow: 0 16px 32px rgba(20, 22, 28, 0.28);
+    }
+  }
+
+  // Урд тал
+  &__face--front,
+  .front {
+    img,
+    .card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__caption,
+  .caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: rem(40px) var(--space-2) var(--space-2);
+    font-size: rem(17.6px);
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+
+  // Ар тал
+  &__face--back,
+  .back {
+    transform: rotateY(180deg);
+    background: var(--ink);
+    color: var(--on-ink);
+    padding: var(--space-2) var(--space-3);
+    @include flex-center(column, 0.5rem);
+    border: 2px solid var(--gold);
+
+    h3,
+    .card__back-title {
+      color: var(--gold-soft);
+      font-size: rem(17.6px);
+      width: 100%;
+    }
+
+    p,
+    .card__back-desc {
+      color: var(--on-ink-muted);
+      font-size: rem(14.7px);
+      line-height: 1.45;
+      width: 100%;
+    }
+  }
+
+  // Үзүүлэлтүүд (specs)
+  &__specs,
+  .specs {
+    display: grid;
+    gap: 0.25rem;
+    font-size: rem(14px);
+    width: 100%;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-1);
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      padding-top: 0.25rem;
+    }
+
+    dt {
+      color: var(--on-ink-muted);
+    }
+
+    dd {
+      margin: 0;
+      font-weight: 700;
+      text-align: right;
+    }
+  }
+
+  // Flip товч
+  &__btn,
+  .flip-btn {
+    align-self: flex-start;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    padding: rem(7.2px) rem(14.4px);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--text);
+    transition: background-color var(--dur-fast),
+                color var(--dur-fast),
+                transform var(--dur-fast) var(--ease);
+
+    &:hover,
+    &[aria-pressed="true"] {
+      background: var(--gold);
+      color: var(--on-gold);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+}

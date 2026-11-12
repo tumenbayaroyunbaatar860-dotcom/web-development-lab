@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Лаб 9 - Шалгах тестүүд</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 24px; background: #0f172a; color: #f8fafc; }
+    h1 { color: #38bdf8; }
+    .test-group { background: #1e293b; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; }
+    .test-case { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #334155; font-family: monospace; }
+    .pass { color: #4ade80; font-weight: bold; }
+    .fail { color: #f87171; font-weight: bold; }
+    .summary { font-size: 1.2rem; font-weight: bold; margin-top: 16px; color: #a78bfa; }
+  </style>
+</head>
+<body>
+  <h1>Лаб 9: Бүх функцийн автомат шалгалт (Unit Tests)</h1>
+  <div id="results"></div>
+
+  <script src="js/algorithms.js"></script>
+  <script src="js/validators.js"></script>
+  <script src="js/types-experiment.js"></script>
+  <script>
+    const tests = [
+      // Task 2: Algorithms
+      { name: 'sumTo(10) === 55', run: () => sumTo(10) === 55 },
+      { name: 'sumTo(1) === 1', run: () => sumTo(1) === 1 },
+      { name: 'sumTo(0) === 0', run: () => sumTo(0) === 0 },
+      { name: 'factorial(5) === 120', run: () => factorial(5) === 120 },
+      { name: 'factorial(0) === 1', run: () => factorial(0) === 1 },
+      { name: 'factorial(1) === 1', run: () => factorial(1) === 1 },
+      { name: 'factorial(-1) === null', run: () => factorial(-1) === null },
+      { name: 'isPrime(2) === true', run: () => isPrime(2) === true },
+      { name: 'isPrime(13) === true', run: () => isPrime(13) === true },
+      { name: 'isPrime(4) === false', run: () => isPrime(4) === false },
+      { name: 'isPrime(1) === false', run: () => isPrime(1) === false },
+      { name: 'fizzBuzz(15) length is 15', run: () => fizzBuzz(15).length === 15 },
+      { name: 'fizzBuzz(15)[2] === "Fizz"', run: () => fizzBuzz(15)[2] === 'Fizz' },
+      { name: 'fizzBuzz(15)[4] === "Buzz"', run: () => fizzBuzz(15)[4] === 'Buzz' },
+      { name: 'fizzBuzz(15)[14] === "FizzBuzz"', run: () => fizzBuzz(15)[14] === 'FizzBuzz' },
+      { name: 'countVowels("Hello World") === 3', run: () => countVowels("Hello World") === 3 },
+      { name: 'countVowels("Улаанбаатар") === 6', run: () => countVowels("Улаанбаатар") === 6 },
+      { name: 'countVowels("rhythm") === 0', run: () => countVowels("rhythm") === 0 },
+      { name: 'isPalindrome("racecar") === true', run: () => isPalindrome("racecar") === true },
+      { name: 'isPalindrome("Ара") === true', run: () => isPalindrome("Ара") === true },
+      { name: 'isPalindrome("A man a plan a canal Panama") === true', run: () => isPalindrome("A man a plan a canal Panama") === true },
+      { name: 'isPalindrome("Цаг") === false', run: () => isPalindrome("Цаг") === false },
+      { name: 'maxOf([3, 7, 2, 9, 1]) === 9', run: () => maxOf([3, 7, 2, 9, 1]) === 9 },
+      { name: 'maxOf(3, 7, 2, 9, 1) === 9', run: () => maxOf(3, 7, 2, 9, 1) === 9 },
+      { name: 'maxOf([-10, -5, -20]) === -5', run: () => maxOf([-10, -5, -20]) === -5 },
+      { name: 'digitSum(123) === 6', run: () => digitSum(123) === 6 },
+      { name: 'digitSum(9045) === 18', run: () => digitSum(9045) === 18 },
+      { name: 'digitSum(0) === 0', run: () => digitSum(0) === 0 },
+
+      // Task 3: Validators
+      // validateName: trim, not empty, 2-50 chars, no digits
+      { name: 'validateName("  Болд  ") === true', run: () => validateName("  Болд  ") === true },
+      { name: 'validateName("John Doe") === true', run: () => validateName("John Doe") === true },
+      { name: 'validateName("Б123") === false (contains digit)', run: () => validateName("Б123") === false },
+      { name: 'validateName("A") === false (length < 2)', run: () => validateName("A") === false },
+      { name: 'validateName("   ") === false (empty)', run: () => validateName("   ") === false },
+
+      // validateEmail: not empty, name@domain.ext regex, no whitespace
+      { name: 'validateEmail("user@example.com") === true', run: () => validateEmail("user@example.com") === true },
+      { name: 'validateEmail("bold.b@sub.domain.mn") === true', run: () => validateEmail("bold.b@sub.domain.mn") === true },
+      { name: 'validateEmail("user @domain.com") === false (contains space)', run: () => validateEmail("user @domain.com") === false },
+      { name: 'validateEmail("user@domain") === false (no extension)', run: () => validateEmail("user@domain") === false },
+      { name: 'validateEmail("") === false (empty)', run: () => validateEmail("") === false },
+
+      // validatePassword: min 8 chars, no space, letters + digits
+      { name: 'validatePassword("Pass1234") === true', run: () => validatePassword("Pass1234") === true },
+      { name: 'validatePassword("НууцҮг2026") === true', run: () => validatePassword("НууцҮг2026") === true },
+      { name: 'validatePassword("Pass 1234") === false (contains space)', run: () => validatePassword("Pass 1234") === false },
+      { name: 'validatePassword("password") === false (no digit)', run: () => validatePassword("password") === false },
+      { name: 'validatePassword("12345678") === false (no letter)', run: () => validatePassword("12345678") === false },
+      { name: 'validatePassword("P123") === false (length < 8)', run: () => validatePassword("P123") === false },
+
+      // validateMessage: trim, 10-500 chars
+      { name: 'validateMessage("  Сайн байна уу, санал байна.  ") === true', run: () => validateMessage("  Сайн байна уу, санал байна.  ") === true },
+      { name: 'validateMessage("Богино") === false (< 10 chars)', run: () => validateMessage("Богино") === false },
+      { name: 'validateMessage("   ") === false (empty after trim)', run: () => validateMessage("   ") === false }
+    ];
+
+    let passed = 0;
+    const container = document.getElementById('results');
+    const group = document.createElement('div');
+    group.className = 'test-group';
+
+    tests.forEach(t => {
+      let ok = false;
+      try {
+        ok = t.run();
+      } catch (e) {
+        ok = false;
+      }
+      if (ok) passed++;
+      const row = document.createElement('div');
+      row.className = 'test-case';
+      row.innerHTML = `<span>${t.name}</span><span class="${ok ? 'pass' : 'fail'}">${ok ? 'PASS ✓' : 'FAIL ✗'}</span>`;
+      group.appendChild(row);
+    });
+
+    const summary = document.createElement('div');
+    summary.className = 'summary';
+    summary.textContent = `Нийт: ${passed} / ${tests.length} амжилттай давлаа (${passed === tests.length ? '100% АМЖИЛТТАЙ' : 'АЛДААТАЙ'}).`;
+    group.appendChild(summary);
+    container.appendChild(group);
+
+    console.log(`Лаб 9 Тестийн дүн: ${passed} / ${tests.length} PASS`);
+    window.__TEST_RESULTS__ = { total: tests.length, passed: passed, allPassed: passed === tests.length };
+  </script>
+</body>
+</html>

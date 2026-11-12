@@ -1,0 +1,61 @@
+// base/_base.scss
+@use '../abstracts/functions' as *;
+@use '../abstracts/tokens' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: rem(90px);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  transition: background-color var(--dur-fast), color var(--dur-fast);
+}
+
+h1, h2, h3, p, ul, dl, figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img, video, iframe, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: rem(-64px);
+  background: var(--gold);
+  color: var(--on-gold);
+  padding: rem(9.6px) rem(16px);
+  border-radius: var(--radius-md);
+  z-index: 100;
+  font-weight: 700;
+
+  &:focus {
+    top: var(--space-1);
+  }
+}

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Бугуйн цагны зургийн цомог: Лаб 9 - JavaScript form validation, algorithms, typeof туршилт">
+  <title>Бугуйн цагны цомог - Лаб 9 JavaScript Validation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="js/types-experiment.js" defer></script>
+  <script src="js/algorithms.js" defer></script>
+  <script src="js/validators.js" defer></script>
+  <script src="js/form-handler.js" defer></script>
+  <script src="js/interactive-panel.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#feedback">Санал хүсэлт рүү алгасах</a>
+  <a class="skip-link" href="#gallery">Цомог руу алгасах</a>
+
+  <header class="header">
+    <div class="container header__inner header-in">
+      <a href="#top" class="header__logo logo">Tsag<span>.mn</span></a>
+
+      <nav class="header__nav nav" aria-label="Үндсэн цэс">
+        <a href="#gallery" class="header__link">Цомог</a>
+        <a href="#feedback" class="header__link">Санал хүсэлт</a>
+        <a href="#algorithms" class="header__link">Алгоритм &amp; Туршилт</a>
+        <a href="#video" class="header__link">Видео</a>
+        <a href="#map" class="header__link">Газрын зураг</a>
+      </nav>
+
+      <div class="header__controls controls">
+        <button type="button" id="flip-all" class="btn btn--ghost btn-ghost" aria-pressed="false">Бүгдийг эргүүлэх</button>
+        <button type="button" id="theme-toggle" class="btn btn--ghost btn-ghost" aria-pressed="false">
+          <svg class="icon btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/>
+          </svg>
+          <span>Харанхуй горим</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO + inline SVG -->
+    <section class="container hero">
+      <div class="hero__text hero-text">
+        <p class="eyebrow">Лаб 9 · JavaScript Form Validation &amp; Algorithms</p>
+        <h1>Бугуйн цагны <em>цомог</em></h1>
+        <p>Зургийн карт дээр хулганаа аваачвал эсвэл «Дэлгэрэнгүй» товчийг дарвал 3D байдлаар эргэж, цагны тухай мэдээлэл харуулна.</p>
+      </div>
+
+      <figure class="hero__art hero-art">
+        <svg viewBox="0 0 260 220" role="img" aria-labelledby="gear-title gear-desc">
+          <title id="gear-title">Эргэлддэг араанууд</title>
+          <desc id="gear-desc">Хоёр алтлаг араа бие биетэйгээ тохирч, эсрэг чиглэлд аажмаар эргэж байна.</desc>
+          <g class="gear gear--a gear-a">
+            <circle cx="95" cy="125" r="62" class="gear__teeth teeth" stroke-width="16" stroke-dasharray="12.5 11.85"/>
+            <circle cx="95" cy="125" r="54" class="gear__body body"/>
+            <circle cx="95" cy="125" r="38" class="gear__hole hole"/>
+            <line x1="95" y1="87" x2="95" y2="163" class="gear__spoke spoke"/>
+            <line x1="57" y1="125" x2="133" y2="125" class="gear__spoke spoke"/>
+            <circle cx="95" cy="125" r="12" class="gear__body body"/>
+          </g>
+          <g class="gear gear--b gear-b">
+            <circle cx="180" cy="62" r="36" class="gear__teeth teeth" stroke-width="12" stroke-dasharray="11.8 10.8"/>
+            <circle cx="180" cy="62" r="30" class="gear__body body"/>
+            <circle cx="180" cy="62" r="18" class="gear__hole hole"/>
+            <circle cx="180" cy="62" r="7" class="gear__body body"/>
+          </g>
+        </svg>
+      </figure>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="container section">
+      <h2>Цагны цомог</h2>
+      <p class="lead">Зургийн цомгоос зургаан төрлийн цагийг сонго. Карт бүрийн ард тухайн төрлийн товч үзүүлэлт байна.</p>
+
+      <ul class="gallery">
+
+        <li class="card" style="--i:0">
+          <div class="card__flip flip">
+            <div class="card__inner flip-inner">
+              <div class="card__face card__face--front face front">
+                <img src="img/photo1.jpg" width="1200" height="800" alt="Алтлаг хайрцагтай, цагаан дүрстэй, бор арьсан оосортой гоёлын бугуйн цаг" loading="lazy">
+                <h3 class="card__caption caption">Dress watch</h3>
+              </div>
+              <div class="card__face card__face--back face back">
+                <h3 class="card__title">Dress watch</h3>
+                <p class="card__desc">Нимгэн, энгийн, гоёмсог. Албан ёсны хувцастай зүүнэ.</p>
+                <dl class="card__specs specs">
+                  <div><dt>Хайрцаг</dt><dd>34–40 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Механик / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>3 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="card__btn flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:1">
+          <div class="card__flip flip">
+            <div class="card__inner flip-inner">
+              <div class="card__face card__face--front face front">
+                <img src="img/photo2.jpg" width="1200" height="800" alt="Цэнхэр бөгжтэй, хар дүрстэй, резин оосортой шумбагчийн бугуйн цаг" loading="lazy">
+                <h3 class="card__caption caption">Diver</h3>
+              </div>
+              <div class="card__face card__face--back face back">
+                <h3 class="card__title">Diver</h3>
+                <p class="card__desc">Усанд шумбахад зориулсан, эргэдэг бөгжтэй, гэрэлтэх тэмдэгтэй.</p>
+                <dl class="card__specs specs">
+                  <div><dt>Хайрцаг</dt><dd>40–44 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Автомат / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>20 ATM хүртэл</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="card__btn flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:2">
+          <div class="card__flip flip">
+            <div class="card__inner flip-inner">
+              <div class="card__face card__face--front face front">
+                <img src="img/photo3.jpg" width="1200" height="800" alt="Том арабын тоотой, хар дүрстэй, бор арьсан оосортой нисгэгчийн бугуйн цаг" loading="lazy">
+                <h3 class="card__caption caption">Pilot</h3>
+              </div>
+              <div class="card__face card__face--back face back">
+                <h3 class="card__title">Pilot</h3>
+                <p class="card__desc">Том тоотой, хол зайнаас ч хялбар уншигдах дүрстэй.</p>
+                <dl class="card__specs specs">
+                  <div><dt>Хайрцаг</dt><dd>40–46 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Автомат</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>6 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="card__btn flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:3">
+          <div class="card__flip flip">
+            <div class="card__inner flip-inner">
+              <div class="card__face card__face--front face front">
+                <img src="img/photo4.jpg" width="1200" height="800" alt="Хоёр жижиг дугуй хэмжүүртэй, цагаан дүрстэй хронографын бугуйн цаг" loading="lazy">
+                <h3 class="card__caption caption">Chronograph</h3>
+              </div>
+              <div class="card__face card__face--back face back">
+                <h3 class="card__title">Chronograph</h3>
+                <p class="card__desc">Секундомер функцтэй, хажуугийн хоёр товчтой.</p>
+                <dl class="card__specs specs">
+                  <div><dt>Хайрцаг</dt><dd>38–44 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Автомат / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>10 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="card__btn flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:4">
+          <div class="card__flip flip">
+            <div class="card__inner flip-inner">
+              <div class="card__face card__face--front face front">
+                <img src="img/photo5.jpg" width="1200" height="800" alt="Ногоон дүрстэй, даавуун оосортой талбайн бугуйн цаг" loading="lazy">
+                <h3 class="card__caption caption">Field watch</h3>
+              </div>
+              <div class="card__face card__face--back face back">
+                <h3 class="card__title">Field watch</h3>
+                <p class="card__desc">Энгийн, бат бөх, гадаа явахад зориулсан цэргийн хэв маягтай.</p>
+                <dl class="card__specs specs">
+                  <div><dt>Хайрцаг</dt><dd>36–42 мм</dd></div>
+                  <div><dt>Механизм</dt><dd>Механик / кварц</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>10 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="card__btn flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+        <li class="card" style="--i:5">
+          <div class="card__flip flip">
+            <div class="card__inner flip-inner">
+              <div class="card__face card__face--front face front">
+                <img src="img/photo6.jpg" width="1200" height="800" alt="Өнгөт идэвхийн цагирагтай дэлгэцтэй, цагаан оосортой ухаалаг цаг" loading="lazy">
+                <h3 class="card__caption caption">Smartwatch</h3>
+              </div>
+              <div class="card__face card__face--back face back">
+                <h3 class="card__title">Smartwatch</h3>
+                <p class="card__desc">Алхалт, зүрхний хэмнэл хэмжиж, мэдэгдэл хүлээн авна.</p>
+                <dl class="card__specs specs">
+                  <div><dt>Дэлгэц</dt><dd>1.5–1.9 инч</dd></div>
+                  <div><dt>Цэнэг</dt><dd>1–7 хоног</dd></div>
+                  <div><dt>Ус тэсвэр</dt><dd>5 ATM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="card__btn flip-btn" aria-pressed="false">Дэлгэрэнгүй</button>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- FEEDBACK FORM SECTION (ЛАБ 9 - ДААЛГАВАР 3 & 4) -->
+    <section id="feedback" class="container section">
+      <h2>Санал хүсэлтийн маягт</h2>
+      <p class="lead">Бугуйн цагны зургийн цомог порталын хэрэглэгчийн санал хүсэлтийн form. Энд JavaScript client-side validation бүрэн ажиллана.</p>
+
+      <div class="feedback-card">
+        <form id="feedback-form" class="feedback-form" novalidate>
+          
+          <!-- ТАЛБАР 1: НЭР (validateName) -->
+          <div class="form-group" id="group-name">
+            <label for="feedback-name" class="form-label">
+              <span>Таны нэр</span>
+              <span class="req" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="feedback-name"
+              name="name"
+              class="form-input"
+              placeholder="Жишээ: Болд, Бат-Эрдэнэ..."
+              autocomplete="name"
+              required
+              aria-describedby="name-hint name-error"
+            >
+            <div class="form-helper">
+              <span id="name-hint" class="form-hint">Дүрэм: Хоёр захын зайг хасна. Хоосон биш, 2–50 тэмдэгт, тоо агуулахгүй.</span>
+            </div>
+            <div id="name-error" class="form-error is-hidden" aria-live="polite"></div>
+          </div>
+
+          <!-- ТАЛБАР 2: И-МЭЙЛ (validateEmail) -->
+          <div class="form-group" id="group-email">
+            <label for="feedback-email" class="form-label">
+              <span>И-мэйл хаяг</span>
+              <span class="req" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="email"
+              id="feedback-email"
+              name="email"
+              class="form-input"
+              placeholder="нэр@домэйн.өргөтгөл"
+              autocomplete="email"
+              required
+              aria-describedby="email-hint email-error"
+            >
+            <div class="form-helper">
+              <span id="email-hint" class="form-hint">Дүрэм: Хоосон биш; «нэр@домэйн.өргөтгөл» хэлбэр (regex); зай агуулахгүй.</span>
+            </div>
+            <div id="email-error" class="form-error is-hidden" aria-live="polite"></div>
+          </div>
+
+          <!-- ТАЛБАР 3: НУУЦ ҮГ (validatePassword) -->
+          <div class="form-group" id="group-password">
+            <label for="feedback-password" class="form-label">
+              <span>Хандах нууц үг</span>
+              <span class="req" aria-hidden="true">*</span>
+            </label>
+            <div class="input-password-wrap">
+              <input
+                type="password"
+                id="feedback-password"
+                name="password"
+                class="form-input"
+                placeholder="••••••••"
+                autocomplete="new-password"
+                required
+                aria-describedby="password-hint password-error"
+              >
+              <button type="button" id="toggle-password-visibility" class="btn-toggle-pass" aria-label="Нууц үгийг харах">Харах</button>
+            </div>
+            <div class="form-helper">
+              <span id="password-hint" class="form-hint">Дүрэм: Дор хаяж 8 тэмдэгт; хоосон зайгүй; үсэг (кирилл/латин) ба тоо агуулна.</span>
+            </div>
+            <div id="password-error" class="form-error is-hidden" aria-live="polite"></div>
+          </div>
+
+          <!-- ТАЛБАР 4: ЗУРВАС / САНАЛ ХҮСЭЛТ (validateMessage) -->
+          <div class="form-group" id="group-message">
+            <label for="feedback-message" class="form-label">
+              <span>Санал хүсэлтийн зурвас</span>
+              <span class="req" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="feedback-message"
+              name="message"
+              class="form-textarea"
+              rows="4"
+              placeholder="Цагны загвар, үйлчилгээ болон порталын талаарх санал бодлоо бичнэ үү..."
+              required
+              aria-describedby="message-hint message-error char-count"
+            ></textarea>
+            <div class="form-helper">
+              <span id="message-hint" class="form-hint">Дүрэм: Хоёр захын зайг хасна. 10–500 тэмдэгт.</span>
+              <span id="char-count" class="char-count">0 / 500 тэмдэгт</span>
+            </div>
+            <div id="message-error" class="form-error is-hidden" aria-live="polite"></div>
+          </div>
+
+          <!-- ТОВЧЛУУРУУД -->
+          <div class="form-actions">
+            <button type="submit" id="feedback-submit" class="btn btn--primary">
+              <svg class="icon btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+              </svg>
+              <span>Илгээх</span>
+            </button>
+            <button type="reset" id="feedback-reset" class="btn btn--ghost">
+              <span>Цэвэрлэх</span>
+            </button>
+          </div>
+
+          <!-- АМЖИЛТТАЙ ИЛГЭЭСЭН МЭДЭГДЭЛ -->
+          <div id="feedback-success" class="form-success is-hidden" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ALGORITHMS & TYPE EXPERIMENT PANEL (ЛАБ 9 - ДААЛГАВАР 1 & 2) -->
+    <section id="algorithms" class="container section">
+      <h2>Лаб 9: Алгоритм &amp; Төрлийн туршилтын самбар</h2>
+      <p class="lead">Даалгавар 1 (console.table, typeof, 0.1 + 0.2) ба Даалгавар 2 (8 алгоритм)-ын биелэлтийг эндээс интерактив шалгах боломжтой. Бүх консол хүснэгтийг харахын тулд F12 дарж Developer Tools &rarr; Console нээнэ үү.</p>
+
+      <div class="lab-panel">
+        <div class="lab-panel__header">
+          <div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.35rem; color: var(--gold);">Даалгавар 1: Төрөл ба Хөрвүүлэлтийн туршилт</h3>
+            <p style="color: var(--muted); font-size: 0.88rem;">typeof оператор, ил/далд хөрвүүлэлт, 0.1 + 0.2 бутархайн алдааны хүснэгтүүд.</p>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" id="btn-toggle-experiments" class="btn btn--ghost">Туршилтын үр дүнг хуудсан дээр харах</button>
+            <a href="test-runner.html" target="_blank" class="btn" style="text-decoration: none;">Нэгж тестүүд (Unit Tests)</a>
+          </div>
+        </div>
+        <div id="experiments-display" class="d-none"></div>
+
+        <h3 style="font-size: 1.25rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--gold);">Даалгавар 2: Бэлэн функц ашиглаагүй 8 алгоритм</h3>
+        <div class="algo-grid">
+          
+          <!-- 1. sumTo -->
+          <div class="algo-card">
+            <h3>1. sumTo(n)</h3>
+            <p>1-ээс n хүртэлх бүхэл тооны нийлбэр (for давталтаар).</p>
+            <input type="number" id="input-sumTo" class="algo-input" value="10" placeholder="n тоо">
+            <button type="button" id="btn-sumTo" class="btn btn-run">Бодох</button>
+            <div id="res-sumTo" class="algo-result">Үр дүн: sumTo(10) = 55</div>
+          </div>
+
+          <!-- 2. factorial -->
+          <div class="algo-card">
+            <h3>2. factorial(n)</h3>
+            <p>n тооны факториал буюу n! (0! = 1, for давталтаар).</p>
+            <input type="number" id="input-factorial" class="algo-input" value="5" min="0" placeholder="n тоо">
+            <button type="button" id="btn-factorial" class="btn btn-run">Бодох</button>
+            <div id="res-factorial" class="algo-result">Үр дүн: 5! = 120</div>
+          </div>
+
+          <!-- 3. isPrime -->
+          <div class="algo-card">
+            <h3>3. isPrime(n)</h3>
+            <p>Анхны тоо мөн эсэх (true / false).</p>
+            <input type="number" id="input-isPrime" class="algo-input" value="17" placeholder="n тоо">
+            <button type="button" id="btn-isPrime" class="btn btn-run">Шалгах</button>
+            <div id="res-isPrime" class="algo-result">Үр дүн: 17 нь АНХНЫ ТОО МӨН (true)</div>
+          </div>
+
+          <!-- 4. fizzBuzz -->
+          <div class="algo-card">
+            <h3>4. fizzBuzz(n)</h3>
+            <p>3-т "Fizz", 5-д "Buzz", хоёуланд "FizzBuzz".</p>
+            <input type="number" id="input-fizzBuzz" class="algo-input" value="15" min="1" max="100" placeholder="n тоо">
+            <button type="button" id="btn-fizzBuzz" class="btn btn-run">Ажиллуулах</button>
+            <div id="res-fizzBuzz" class="algo-result">Үр дүн: [1, 2, Fizz, 4, Buzz, ...]</div>
+          </div>
+
+          <!-- 5. countVowels -->
+          <div class="algo-card">
+            <h3>5. countVowels(str)</h3>
+            <p>Тэмдэгт мөрөн дэх эгшгүүдийг тоолох (Англи, Монгол).</p>
+            <input type="text" id="input-countVowels" class="algo-input" value="Бугуйн цагны зургийн цомог" placeholder="Текст">
+            <button type="button" id="btn-countVowels" class="btn btn-run">Тоолох</button>
+            <div id="res-countVowels" class="algo-result">Эгшгийн тоо: 9</div>
+          </div>
+
+          <!-- 6. isPalindrome -->
+          <div class="algo-card">
+            <h3>6. isPalindrome(str)</h3>
+            <p>Урдаасаа хойшоо ижил уншигдах эсэх (two-pointers).</p>
+            <input type="text" id="input-isPalindrome" class="algo-input" value="Ара" placeholder="Мөр">
+            <button type="button" id="btn-isPalindrome" class="btn btn-run">Шалгах</button>
+            <div id="res-isPalindrome" class="algo-result">Палиндром МӨН (true)</div>
+          </div>
+
+          <!-- 7. maxOf -->
+          <div class="algo-card">
+            <h3>7. maxOf(arr)</h3>
+            <p>Тоонуудаас хамгийн ихийг олох (Math.max-гүйгээр).</p>
+            <input type="text" id="input-maxOf" class="algo-input" value="12, 45, 7, 89, 23" placeholder="Зай эсвэл таслалаар тусгаарласан">
+            <button type="button" id="btn-maxOf" class="btn btn-run">Олох</button>
+            <div id="res-maxOf" class="algo-result">Хамгийн их: 89</div>
+          </div>
+
+          <!-- 8. digitSum -->
+          <div class="algo-card">
+            <h3>8. digitSum(n)</h3>
+            <p>Бүхэл тооны бүх цифрүүдийн нийлбэр (% 10 математик аргаар).</p>
+            <input type="number" id="input-digitSum" class="algo-input" value="987" placeholder="Бүхэл тоо">
+            <button type="button" id="btn-digitSum" class="btn btn-run">Бодох</button>
+            <div id="res-digitSum" class="algo-result">Цифрүүдийн нийлбэр: 24</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video" class="container section">
+      <h2>Видео</h2>
+      <p class="lead">Секундын заагчийн эргэлтийг харуулсан богино клип. Монгол хадмал (caption) байгаа.</p>
+      <figure class="media">
+        <video controls preload="metadata" playsinline poster="img/poster.jpg" width="640" height="360" class="media__video">
+          <source src="video/clip.webm" type="video/webm">
+          <source src="video/clip.mp4" type="video/mp4">
+          <track kind="captions" src="video/clip.mn.vtt" srclang="mn" label="Монгол" default>
+          Таны хөтөч видеог дэмжихгүй байна. <a href="video/clip.mp4">Видеог татаж авах</a>.
+        </video>
+        <figcaption class="media__caption">Аналог цагийн секундын заагч. Хадмалыг тоглуулагчийн CC товчоор асааж, унтрааж болно.</figcaption>
+      </figure>
+    </section>
+
+    <!-- IFRAME -->
+    <section id="map" class="container section">
+      <h2>Цагийн бүсийн эхлэл</h2>
+      <p class="lead">Лондонгийн Гринвичийн ажиглалтын төв нь 0° уртрагийг заадаг. Дэлхийн цагийн бүсүүдийг эндээс тоолдог.</p>
+      <figure class="media">
+        <iframe
+          class="media__iframe"
+          title="Гринвичийн хааны ажиглалтын төвийн газрын зураг"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-0.0300%2C51.4700%2C0.0300%2C51.4850&amp;layer=mapnik&amp;marker=51.4769%2C-0.0005"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          width="640" height="360"></iframe>
+        <figcaption class="media__caption"><a href="https://www.openstreetmap.org/?mlat=51.4769&amp;mlon=-0.0005#map=15/51.4769/-0.0005">Газрын зургийг том харах</a> · © OpenStreetMap contributors</figcaption>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner footer-in">
+      <p class="footer__copy">&copy; 2026 Lord Oyunbaatar · Лаб 9: JavaScript Validation, Algorithms &amp; Types</p>
+      <a href="#top" class="footer__to-top to-top">↑ Дээш</a>
+    </div>
+  </footer>
+
+</body>
+</html>

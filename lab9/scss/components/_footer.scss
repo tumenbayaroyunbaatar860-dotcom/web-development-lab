@@ -1,0 +1,22 @@
+// components/_footer.scss
+@use '../abstracts/functions' as *;
+
+.footer {
+  background: var(--ink);
+  color: var(--on-ink-muted);
+  text-align: center;
+
+  &__inner,
+  &-in {
+    padding-block: var(--space-4);
+  }
+
+  &__to-top,
+  .to-top {
+    display: inline-block;
+    margin-top: var(--space-1);
+    color: var(--gold-soft);
+    font-weight: 700;
+    text-decoration: none;
+  }
+}

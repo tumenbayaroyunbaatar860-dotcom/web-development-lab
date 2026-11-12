@@ -1,0 +1,45 @@
+// components/_buttons.scss
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  @include flex-center(row, 0.5rem, true);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: rem(9.6px) rem(16px);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--gold);
+  background: var(--gold);
+  color: var(--on-gold);
+  transition: transform var(--dur-fast) var(--ease),
+              background-color var(--dur-fast),
+              box-shadow var(--dur-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(201, 162, 77, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  &--ghost,
+  &-ghost {
+    background: transparent;
+    color: var(--on-ink);
+
+    &:hover,
+    &[aria-pressed="true"] {
+      background: var(--gold);
+      color: var(--on-gold);
+    }
+  }
+
+  &__icon,
+  .icon {
+    width: rem(17.6px);
+    height: rem(17.6px);
+  }
+}

@@ -1,0 +1,43 @@
+// utilities/_utilities.scss
+@use '../abstracts/tokens' as *;
+
+// 1. Spacing utilities using @each
+@each $key, $val in $spacing {
+  .m-#{$key}  { margin: $val !important; }
+  .mt-#{$key} { margin-top: $val !important; }
+  .mb-#{$key} { margin-bottom: $val !important; }
+  .my-#{$key} { margin-top: $val !important; margin-bottom: $val !important; }
+  .mx-#{$key} { margin-left: $val !important; margin-right: $val !important; }
+
+  .p-#{$key}  { padding: $val !important; }
+  .pt-#{$key} { padding-top: $val !important; }
+  .pb-#{$key} { padding-bottom: $val !important; }
+  .py-#{$key} { padding-top: $val !important; padding-bottom: $val !important; }
+  .px-#{$key} { padding-left: $val !important; padding-right: $val !important; }
+}
+
+// 2. Color & Background utilities using @each
+@each $name, $val in $colors {
+  .text-#{$name} {
+    color: var(--#{$name}) !important;
+  }
+  .bg-#{$name} {
+    background-color: var(--#{$name}) !important;
+  }
+}
+
+// 3. Display utilities using @each
+$displays: (block, inline-block, inline, flex, inline-flex, grid, none);
+@each $disp in $displays {
+  .d-#{$disp} {
+    display: $disp !important;
+  }
+}
+
+// 4. Text align utilities using @each
+$alignments: (left, center, right);
+@each $align in $alignments {
+  .text-#{$align} {
+    text-align: $align !important;
+  }
+}

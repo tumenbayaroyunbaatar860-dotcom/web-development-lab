@@ -1,0 +1,16 @@
+// layout/_gallery.scss
+@use '../abstracts/mixins' as *;
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+
+  @include respond('lg') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond('sm') {
+    grid-template-columns: 1fr;
+  }
+}
