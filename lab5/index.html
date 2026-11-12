@@ -25,6 +25,7 @@
       <a href="#types">Төрөл</a>
       <a href="#guide">Сонгох</a>
       <a href="#faq">Асуулт</a>
+      <a href="#wireframe">Утасны харагдац</a>
     </nav>
   </header>
 
@@ -229,6 +230,96 @@
       </details>
     </section>
 
+    <!-- УТАСНЫ ХАРАГДАЦ БА WIREFRAME (MOBILE VIEW & MOCKUP) -->
+    <section id="wireframe" class="wireframe-section">
+      <h2>Утасны харагдац ба Wireframe</h2>
+      <p class="lead">360px өргөнтэй ухаалаг утасны дэлгэц дээр энэхүү хуудас хэрхэн responsive зохицож, нэг баганаар эмх цэгцтэй харагдахыг доорх гар утасны бодит загвар (Phone Mockup) болон бүтцийн Wireframe-ээс үзнэ үү.</p>
+
+      <div class="wireframe-controls">
+        <button type="button" id="tab-mockup-btn" class="wf-btn wf-btn--active">📱 Утасны бодит загвар (Live Mockup)</button>
+        <button type="button" id="tab-svg-btn" class="wf-btn">📐 Бүтцийн эх макет (SVG Wireframe)</button>
+        <a href="wireframe.SVG" target="_blank" class="wf-btn wf-btn--link">↗ Wireframe.SVG томруулах</a>
+        <a href="wireframe.html" target="_blank" class="wf-btn wf-btn--link">📄 Wireframe.html нээх</a>
+      </div>
+
+      <!-- VIEW 1: REALISTIC PHONE MOCKUP -->
+      <div id="phone-mockup-view" class="mockup-container">
+        <div class="phone-device">
+          <div class="phone-notch">
+            <span class="phone-speaker"></span>
+            <span class="phone-camera"></span>
+          </div>
+          <div class="phone-screen">
+            <!-- Simulated Mobile Screen -->
+            <div class="m-status-bar">
+              <span class="m-time">09:41</span>
+              <span class="m-icons">5G 📶 100% 🔋</span>
+            </div>
+            <div class="m-header">
+              <span class="m-logo">⌚ Tsag<span>.mn</span></span>
+              <span class="m-hamburger">☰</span>
+            </div>
+            <div class="m-content">
+              <div class="m-hero">
+                <span class="m-eyebrow">ЦАГ ХУГАЦААГ БУГУЙДАА</span>
+                <h4>Бугуйн цаг: нарийн механизм</h4>
+                <p>Хувийн хэв маяг, мөнхийн үнэ цэнэ.</p>
+                <div class="m-clock-mini">
+                  <div class="m-clock-face">12</div>
+                </div>
+                <div class="m-btn-mini">Түүхийг унших</div>
+              </div>
+
+              <div class="m-stats">
+                <div class="m-stat-item"><strong>1868</strong><span>Эртний цаг</span></div>
+                <div class="m-stat-item"><strong>32,768 Гц</strong><span>Кварц</span></div>
+              </div>
+
+              <div class="m-cards">
+                <div class="m-card">
+                  <span class="m-card-icon">⚙️</span>
+                  <strong>Механик цаг</strong>
+                  <p>Пүрш, араат механизмтай</p>
+                </div>
+                <div class="m-card">
+                  <span class="m-card-icon">🔋</span>
+                  <strong>Кварц цаг</strong>
+                  <p>Зай ба болор чичиргээ</p>
+                </div>
+                <div class="m-card">
+                  <span class="m-card-icon">📱</span>
+                  <strong>Ухаалаг цаг</strong>
+                  <p>Мэдрэгч ба дэлгэц</p>
+                </div>
+              </div>
+
+              <div class="m-footer-mini">
+                &copy; 2026 Tsag.mn · Mobile View (360px)
+              </div>
+            </div>
+            <div class="phone-home-indicator"></div>
+          </div>
+        </div>
+
+        <div class="mockup-info">
+          <h3>Гар утасны (Mobile) дасан зохицол:</h3>
+          <ul class="mobile-features">
+            <li><strong>Хэвтээ цэс &rarr; Hamburger:</strong> Дэлгэцийн өргөн 640px-ээс багасахад навигацийн холбоосууд хураагдаж 3 зураастай ☰ товчлуур болно.</li>
+            <li><strong>Олон багана &rarr; 1 багана:</strong> Hero, статистик, төрлийн картууд бүгд босоо тэнхлэгээр нэг баганад шилжинэ.</li>
+            <li><strong>Хэвтээ гүйлгэлтгүй (No horizontal scroll):</strong> Бүх зураг, элементүүд `max-width: 100%`, `box-sizing: border-box` ашиглан дэлгэцэндээ яг таарна.</li>
+            <li><strong>Хуруугаар хүрэхэд ээлтэй:</strong> Товчлуур, холбоосуудын зай (touch target) дор хаяж 44px болж томорно.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- VIEW 2: SVG WIREFRAME EMBED -->
+      <div id="svg-wireframe-view" class="svg-container d-none">
+        <div class="svg-card">
+          <img src="wireframe.SVG" alt="Бугуйн цаг порталын Desktop ба Mobile Wireframe эх макет" class="wireframe-img" loading="lazy">
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -266,6 +357,28 @@
         });
       }, { threshold: 0.1 });
       items.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+    }
+
+    // Wireframe табуудын шилжилт (Mockup vs SVG)
+    var btnMockup = document.getElementById('tab-mockup-btn');
+    var btnSvg = document.getElementById('tab-svg-btn');
+    var viewMockup = document.getElementById('phone-mockup-view');
+    var viewSvg = document.getElementById('svg-wireframe-view');
+
+    if (btnMockup && btnSvg && viewMockup && viewSvg) {
+      btnMockup.addEventListener('click', function () {
+        btnMockup.classList.add('wf-btn--active');
+        btnSvg.classList.remove('wf-btn--active');
+        viewMockup.classList.remove('d-none');
+        viewSvg.classList.add('d-none');
+      });
+
+      btnSvg.addEventListener('click', function () {
+        btnSvg.classList.add('wf-btn--active');
+        btnMockup.classList.remove('wf-btn--active');
+        viewSvg.classList.remove('d-none');
+        viewMockup.classList.add('d-none');
+      });
     }
   </script>
 </body>
