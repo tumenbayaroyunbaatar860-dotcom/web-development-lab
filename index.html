@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Вэб Хөгжүүлэлтийн Лабораториудын Портал - Т. Оюунбаатар">
+  <title>Вэб Хөгжүүлэлтийн Лабораториуд | Т. Оюунбаатар</title>
+  <style>
+    :root {
+      --bg: #0e1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #f0f6fc;
+      --muted: #8b949e;
+      --gold: #d4af37;
+      --accent: #58a6ff;
+      --green: #2ea043;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px 80px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    h1 span { color: var(--gold); }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 20px;
+    }
+    .author-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+    .author-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .author-info a:hover {
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+    .card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, #1f2530 0%, #161b22 100%);
+    }
+    .card-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .card-tag.new {
+      background: rgba(46, 160, 67, 0.2);
+      color: #3fb950;
+      border: 1px solid #2ea043;
+    }
+    .card-num {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #0e1117;
+    }
+    .btn-primary:hover {
+      background: #e6c77a;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="badge">Портал хуудас</div>
+      <h1>Вэб Хөгжүүлэлтийн <span>Лабораториуд</span></h1>
+      <p class="subtitle">МУИС / Их сургуулийн Вэб хөгжүүлэлт хичээлийн лабораторийн ажлуудын шууд нэвтрэх холбоосууд.</p>
+      <div class="author-info">
+        <span>Оюутан: <strong>Оюунбаатар Түмэнбаяр</strong></span>
+        <span>·</span>
+        <a href="https://github.com/tumenbayaroyunbaatar860-dotcom/web-development-lab" target="_blank">GitHub Repository ↗</a>
+      </div>
+    </header>
+
+    <main class="grid">
+
+      <!-- ЛАБ 9 -->
+      <article class="card featured">
+        <span class="card-tag new">ШИНЭ</span>
+        <div class="card-num">LAB 09</div>
+        <h2>JavaScript Form Validation &amp; Алгоритмууд</h2>
+        <p>Санал хүсэлтийн маягтын 4 талбарын regex ба дүрмийн validation, бэлэн функцгүй 8 алгоритм, typeof ба 0.1+0.2 туршилт, бодит зураг ба видео.</p>
+        <div class="card-links">
+          <a href="lab9/" class="btn btn-primary">Вэб нээх →</a>
+          <a href="lab9/test-runner.html" class="btn btn-secondary">Тестүүд (47 PASS)</a>
+        </div>
+      </article>
+
+      <!-- ЛАБ 8 -->
+      <article class="card">
+        <div class="card-num">LAB 08</div>
+        <h2>Bootstrap ба Tailwind CSS харьцуулалт</h2>
+        <p>Ижилхэн цагны цомгийн хуудсыг Bootstrap болон Tailwind CSS-ээр бүтээж хэмжээ, class, Lighthouse үзүүлэлтийг харьцуулсан тайлан.</p>
+        <div class="card-links">
+          <a href="lab8/report.html" class="btn btn-primary">Тайлан үзэх →</a>
+          <a href="lab8/bootstrap/" class="btn btn-secondary">Bootstrap</a>
+          <a href="lab8/tailwind/" class="btn btn-secondary">Tailwind</a>
+        </div>
+      </article>
+
+      <!-- ЛАБ 7 -->
+      <article class="card">
+        <div class="card-num">LAB 07</div>
+        <h2>Sass / SCSS Preprocessor &amp; 3D Card</h2>
+        <p>SCSS модулиуд, BEM аргачлал, Mixins, Functions болон 3D эргэлддэг картууд бүхий бугуйн цагны зургийн цомог портал.</p>
+        <div class="card-links">
+          <a href="lab7/" class="btn btn-primary">Вэб нээх →</a>
+        </div>
+      </article>
+
+      <!-- ЛАБ 6 -->
+      <article class="card">
+        <div class="card-num">LAB 06</div>
+        <h2>CSS3 Animation &amp; Мультимедиа</h2>
+        <p>CSS Transform, 3D анимаци, эргэлддэг араа SVG зураглал, видео болон OpenStreetMap газрын зураг холбосон цомог.</p>
+        <div class="card-links">
+          <a href="lab6/" class="btn btn-primary">Вэб нээх →</a>
+        </div>
+      </article>
+
+      <!-- ЛАБ 5 -->
+      <article class="card">
+        <div class="card-num">LAB 05</div>
+        <h2>Responsive Web &amp; Гар утасны Wireframe</h2>
+        <p>Ухаалаг гар утас (360px) дээр дасан зохицох бүтэц, бодит төхөөрөмжийн Phone Mockup, вектор SVG Wireframe болон аналог цаг.</p>
+        <div class="card-links">
+          <a href="lab5/" class="btn btn-primary">Вэб нээх →</a>
+          <a href="lab5/wireframe.html" class="btn btn-secondary">Wireframe хуудас</a>
+        </div>
+      </article>
+
+      <!-- ЛАБ 4 -->
+      <article class="card">
+        <div class="card-num">LAB 04</div>
+        <h2>CSS Layouts &amp; Хүснэгт</h2>
+        <p>CSS Flexbox, хүснэгтийн загварчлал, мэдээллийн зохион байгуулалт ба өгөгдлийн үзүүлэлтүүд.</p>
+        <div class="card-links">
+          <a href="lab4/" class="btn btn-primary">Вэб нээх →</a>
+        </div>
+      </article>
+
+      <!-- ЛАБ 3 -->
+      <article class="card">
+        <div class="card-num">LAB 03</div>
+        <h2>CSS3 Basic загварчлал</h2>
+        <p>CSS селекторууд, өнгө, фонт, зайн тохиргоо, боксын загвар (Box Model)-ын суурь хэрэглээ.</p>
+        <div class="card-links">
+          <a href="lab3/" class="btn btn-primary">Вэб нээх →</a>
+        </div>
+      </article>
+
+      <!-- ЛАБ 1 & 2 -->
+      <article class="card">
+        <div class="card-num">LAB 01 &amp; 02</div>
+        <h2>HTML5 Семантик бүтэц</h2>
+        <p>HTML5 үндсэн тагууд, семантик эх бүтэц, холбоосууд, зураг болон жагсаалтууд.</p>
+        <div class="card-links">
+          <a href="lab1/" class="btn btn-primary">Лаб 1 →</a>
+          <a href="lab02/" class="btn btn-secondary">Лаб 2 →</a>
+        </div>
+      </article>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Оюнбаатар Түмэнбаяр · Бүх эрх хуулиар хамгаалагдсан</p>
+    </footer>
+  </div>
+
+</body>
+</html>
